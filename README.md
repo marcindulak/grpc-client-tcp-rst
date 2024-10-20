@@ -1,6 +1,12 @@
 # Why gRPC client follows its TCP FIN, ACK with RST, ACK?
 
-To reproduce the behavior work on your (local) host or inside of a docker container.
+Asked at https://groups.google.com/g/grpc-io/c/r1S8xkncQTQ
+
+# Answer
+
+?
+
+# To reproduce the behavior work on your (local) host or inside of a docker container.
 
 0. Set the gRPC version.
    ```sh
@@ -44,10 +50,11 @@ To reproduce the behavior work on your (local) host or inside of a docker contai
    docker exec -it grpc bash -c "tcpdump -i lo -w /tmp/python_python.pcap 'port 50051' && cp /tmp/python_python.pcap /opt/grpc"
 
    # 4c. In the third terminal, start client.
-   docker exec -it grpc bash -c ". venv/bin/activate && python /opt/grpc/examples/python/helloworld/greeter_client.py"
+   docker exec -it grpc bash -c ". venv/bin/activate && GRPC_TRACE=all GRPC_VERBOSITY=DEBUG python /opt/grpc/examples/python/helloworld/greeter_client.py"
 
    # Will try to greet world ...
    # Greeter client received: Hello, you!
+   # The debug.log is included in the repo as a separate file, similarly to the pcap files.
 
    # 4d. Stop tcdump with ctrl+c, and read the packet capture.
    docker exec -it grpc sh -c "tshark -r /opt/grpc/python_python.pcap"
@@ -320,5 +327,3 @@ Requires https://www.gnu.org/software/screen/manual/screen.html installed on the
    #    17   0.002572    127.0.0.1 → 127.0.0.1    HTTP2 83 PING[0] # server -> client
    #    18   0.002591    127.0.0.1 → 127.0.0.1    TCP 54 36446 → 50051 [RST] Seq=255 Win=0 Len=0
    ```
-
-# Answer?
