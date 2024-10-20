@@ -317,7 +317,7 @@ Requires https://www.gnu.org/software/screen/manual/screen.html installed on the
    # LISTEN                 0                    4096                                           *:50051                                        *:*                  
    # tshark -r /opt/grpc/test.pcap
    #    16   0.002557    127.0.0.1 → 127.0.0.1    TCP 66 36446 → 50051 [FIN, ACK] Seq=254 Ack=138 Win=65536 Len=0 TSval=2410743678 TSecr=2410743677
-   #    17   0.002572    127.0.0.1 → 127.0.0.1    HTTP2 83 PING[0]
+   #    17   0.002572    127.0.0.1 → 127.0.0.1    HTTP2 83 PING[0] # server -> client
    #    18   0.002591    127.0.0.1 → 127.0.0.1    TCP 54 36446 → 50051 [RST] Seq=255 Win=0 Len=0
    ```
 
