@@ -1,0 +1,592 @@
+/venv/lib/python3.12/site-packages/google/protobuf/runtime_version.py:112: UserWarning: Protobuf gencode version 5.27.2 is older than the runtime version 5.28.2 at helloworld.proto. Please avoid checked-in Protobuf gencode that can be obsolete.
+  warnings.warn(
+Will try to greet world ...
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1729446552.352063    5710 log.cc:112] Log level DEBUG is not suitable for production. Prefer WARNING or ERROR. However if you see this message in a debug environmenmt or test environmenmt it is safe to ignore this message.
+I0000 00:00:1729446552.352143    5710 trace.cc:95] gRPC Tracers: event_engine_poller, http2_stream_state, http_keepalive, environment_autodetect, backend_metric_filter, glb, cares_address_sorting, op_failure, xds_client, channel, secure_endpoint, call_error, event_engine_dns, client_channel_lb_call, client_channel, fuzzing_ee_timers, fuzzing_ee_writes, timer_check, xds_client_refcount, plugin_credentials, flowctl, subchannel, executor, compression, timer, tsi, chttp2_new_stream, fault_injection_filter, call, event_engine_endpoint_data, metadata_query, http1, ring_hash_lb, cds_lb, client_channel_call, priority_lb, stateful_session_filter, cares_resolver, xds_wrr_locality_lb, http2_ping, round_robin, subchannel_pool, channel_stack, pick_first, handshaker, resource_quota, api, xds_resolver, orca_client, event_engine_endpoint, weighted_round_robin_lb, client_idle_filter, weighted_target_lb, xds_cluster_manager_lb, server_channel, event_engine, event_engine_client_channel_resolver, tcp, grpc_authz_api, chttp2_hpack_parser, retry, xds_unittest, health_check_client, rls_lb, chaotic_good, apple_polling, xds_override_host_lb, dns_resolver, inproc, fork, queue_pluck, bdp_estimator, cronet, connectivity_state, outlier_detection_lb, backend_metric, token_fetcher_credentials, xds_server_config_fetcher, http, xds_cluster_impl_lb
+I0000 00:00:1729446552.352160    5710 executor.cc:373] Executor::InitAll() enter
+I0000 00:00:1729446552.352162    5710 executor.cc:131] EXECUTOR (default-executor) SetThreading(true) begin
+I0000 00:00:1729446552.352217    5710 executor.cc:204] EXECUTOR (default-executor) SetThreading(true) done
+I0000 00:00:1729446552.352223    5710 executor.cc:131] EXECUTOR (resolver-executor) SetThreading(true) begin
+I0000 00:00:1729446552.352242    5710 executor.cc:204] EXECUTOR (resolver-executor) SetThreading(true) done
+I0000 00:00:1729446552.352244    5710 executor.cc:389] Executor::InitAll() done
+I0000 00:00:1729446552.352267    5710 timer_manager.cc:89] Spawn timer thread
+I0000 00:00:1729446552.352290    5717 executor.cc:218] EXECUTOR (resolver-executor) [0]: step (sub_depth=0)
+I0000 00:00:1729446552.352681    5710 init.cc:130] grpc_init(void)
+I0000 00:00:1729446552.352682    5716 executor.cc:218] EXECUTOR (default-executor) [0]: step (sub_depth=0)
+I0000 00:00:1729446552.352696    5710 completion_queue.cc:515] grpc_completion_queue_create_internal(completion_type=0, polling_type=0)
+I0000 00:00:1729446552.352718    5710 completion_queue.cc:515] grpc_completion_queue_create_internal(completion_type=0, polling_type=0)
+I0000 00:00:1729446552.352742    5710 chttp2_connector.cc:312] grpc_secure_channel_create(target=127.0.0.1:50051, creds=0x2573b140, args=0xffffbd2bf5e0)
+I0000 00:00:1729446552.352744    5718 timer_manager.cc:184] sleep for a 1001 milliseconds
+I0000 00:00:1729446552.352990    5710 channel_init.cc:338] ORDERED CHANNEL STACK CLIENT_CHANNEL:
+I0000 00:00:1729446552.353097    5710 channel_init.cc:397]   legacy_channel_idle_filter.cc:298:  client_idle    [Default/V2]
+I0000 00:00:1729446552.353102    5710 channel_init.cc:408]   client_channel_plugin.cc:38:        client-channel [terminal]
+I0000 00:00:1729446552.353107    5710 channel_init.cc:338] ORDERED CHANNEL STACK CLIENT_SUBCHANNEL:
+I0000 00:00:1729446552.353117    5710 channel_init.cc:397]   client_authority_filter.cc:80:  authority             [Default/Any]
+I0000 00:00:1729446552.353119    5710 channel_init.cc:397]   init.cc:74:                     client-auth-filter    after authority [Default/V2]
+I0000 00:00:1729446552.353120    5710 channel_init.cc:397]   grpclb.cc:1894:                 client_load_reporting [Default/Any]
+I0000 00:00:1729446552.353122    5710 channel_init.cc:397]   message_size_filter.cc:241:     message_size          [Default/Any]
+I0000 00:00:1729446552.353123    5710 channel_init.cc:397]   http_filters_plugin.cc:58:      http-client           after message_size [Default/Any]
+I0000 00:00:1729446552.353125    5710 channel_init.cc:397]   http_filters_plugin.cc:43:      compression           after http-client, message_size [Default/Any]
+I0000 00:00:1729446552.353127    5710 channel_init.cc:408]   connected_channel.cc:314:       connected             [terminal]
+I0000 00:00:1729446552.353128    5710 channel_init.cc:408]   connected_channel.cc:329:       connected             [terminal]
+I0000 00:00:1729446552.353130    5710 channel_init.cc:338] ORDERED CHANNEL STACK CLIENT_DYNAMIC_CHANNEL:
+I0000 00:00:1729446552.353132    5710 channel_init.cc:338] ORDERED CHANNEL STACK CLIENT_LAME_CHANNEL:
+I0000 00:00:1729446552.353134    5710 channel_init.cc:408]   grpc_plugin_registry.cc:84:  lame-client [terminal]
+I0000 00:00:1729446552.353136    5710 channel_init.cc:338] ORDERED CHANNEL STACK CLIENT_DIRECT_CHANNEL:
+I0000 00:00:1729446552.353140    5710 channel_init.cc:397]   client_authority_filter.cc:84:             authority                  [Default/Any]
+I0000 00:00:1729446552.353142    5710 channel_init.cc:397]   init.cc:77:                                client-auth-filter         after authority [Default/V2]
+I0000 00:00:1729446552.353144    5710 channel_init.cc:397]   service_config_channel_arg_filter.cc:131:  service_config_channel_arg [Default/Any]
+I0000 00:00:1729446552.353146    5710 channel_init.cc:397]   message_size_filter.cc:244:                message_size               after service_config_channel_arg [Default/Any]
+I0000 00:00:1729446552.353148    5710 channel_init.cc:397]   http_filters_plugin.cc:62:                 http-client                after message_size [Default/Any]
+I0000 00:00:1729446552.353151    5710 channel_init.cc:397]   http_filters_plugin.cc:48:                 compression                after http-client, message_size [Default/Any]
+I0000 00:00:1729446552.353153    5710 channel_init.cc:408]   connected_channel.cc:319:                  connected                  [terminal]
+I0000 00:00:1729446552.353154    5710 channel_init.cc:408]   connected_channel.cc:333:                  connected                  [terminal]
+I0000 00:00:1729446552.353159    5710 channel_init.cc:338] ORDERED CHANNEL STACK SERVER_CHANNEL:
+I0000 00:00:1729446552.353181    5710 channel_init.cc:397]   grpc_plugin_registry.cc:87:         server             [Default/V2]
+I0000 00:00:1729446552.353183    5710 channel_init.cc:397]   backend_metric_filter.cc:150:       backend_metric     after server [Default/Any]
+I0000 00:00:1729446552.353185    5710 channel_init.cc:397]   legacy_channel_idle_filter.cc:304:  max_age            after server [Default/V2]
+I0000 00:00:1729446552.353187    5710 channel_init.cc:397]   message_size_filter.cc:248:         message_size       after server [Default/Any]
+I0000 00:00:1729446552.353188    5710 channel_init.cc:397]   http_filters_plugin.cc:66:          http-server        after message_size, server [Default/Any]
+I0000 00:00:1729446552.353190    5710 channel_init.cc:397]   http_filters_plugin.cc:53:          compression        after http-server, message_size, server [Default/Any]
+I0000 00:00:1729446552.353192    5710 channel_init.cc:397]   init.cc:80:                         server-auth        after server [Default/Any]
+I0000 00:00:1729446552.353194    5710 channel_init.cc:397]   init.cc:83:                         grpc-server-authz  after server-auth, server [Default/Any]
+I0000 00:00:1729446552.353195    5710 channel_init.cc:397]   server_call_tracer_filter.cc:107:   server_call_tracer after server [Default/Any]
+I0000 00:00:1729446552.353197    5710 channel_init.cc:408]   connected_channel.cc:323:           connected          [terminal]
+I0000 00:00:1729446552.353198    5710 channel_init.cc:408]   connected_channel.cc:337:           connected          [terminal]
+I0000 00:00:1729446552.353211    5710 init.cc:130] grpc_init(void)
+I0000 00:00:1729446552.353428    5710 default_event_engine.cc:87] Created DefaultEventEngine::0x253d0ec0. Called from [src/core/lib/event_engine/default_event_engine.cc:98]
+I0000 00:00:1729446552.353458    5710 channel_stack.cc:121] CHANNEL_STACK: init CLIENT_CHANNEL
+I0000 00:00:1729446552.353460    5710 channel_stack.cc:123] CHANNEL_STACK:   filter client_idle
+I0000 00:00:1729446552.353461    5710 channel_stack.cc:123] CHANNEL_STACK:   filter client-channel
+I0000 00:00:1729446552.353497    5710 client_channel_filter.cc:1092] chand=0x2573cbb0: creating client_channel for channel stack 0x2573cae0
+I0000 00:00:1729446552.353521    5710 memory_quota.cc:550] Adding allocator 0x254a51e0
+I0000 00:00:1729446552.353550    5710 init.cc:130] grpc_init(void)
+I0000 00:00:1729446552.353554    5710 credentials.cc:38] grpc_channel_credentials_release(creds=0x2573b140)
+I0000 00:00:1729446552.353574    5710 channel.cc:122] grpc_channel_register_call(channel=0x256160c0, method=/helloworld.Greeter/SayHello, host=(null), reserved=0)
+I0000 00:00:1729446552.353591    5710 channel.cc:122] grpc_channel_register_call(channel=0x256160c0, method=/helloworld.Greeter/SayHelloStreamReply, host=(null), reserved=0)
+I0000 00:00:1729446552.353599    5710 channel.cc:122] grpc_channel_register_call(channel=0x256160c0, method=/helloworld.Greeter/SayHelloBidiStream, host=(null), reserved=0)
+I0000 00:00:1729446552.353665    5710 completion_queue.cc:515] grpc_completion_queue_create_internal(completion_type=0, polling_type=0)
+I0000 00:00:1729446552.353676    5710 channel.cc:137] grpc_channel_create_registered_call(channel=0x256160c0, parent_call=0, propagation_mask=65535, completion_queue=0x2551eaf0, registered_call_handle=0x25455560, deadline=gpr_timespec { tv_sec: 9223372036854775807, tv_nsec: 0, clock_type: 1 }, reserved=0)
+I0000 00:00:1729446552.353683    5710 client_channel_filter.cc:1981] chand=0x2573cbb0 calld=0x2573f600: created call
+I0000 00:00:1729446552.353703    5710 metadata_array.cc:28] grpc_metadata_array_init(array=0xffffbd2d9058)
+I0000 00:00:1729446552.353705    5710 metadata_array.cc:28] grpc_metadata_array_init(array=0xffffbd23e630)
+I0000 00:00:1729446552.353707    5710 call.cc:471] grpc_call_start_batch(call=0x2573e6c0, ops=0x257295b0, nops=6, tag=0xffffbd2bfa10, reserved=0)
+I0000 00:00:1729446552.353710    5710 filter_stack_call.cc:757] ops[0]: SEND_INITIAL_METADATA(nil)
+I0000 00:00:1729446552.353712    5710 filter_stack_call.cc:757] ops[1]: SEND_MESSAGE ptr=0x25591b70
+I0000 00:00:1729446552.353714    5710 filter_stack_call.cc:757] ops[2]: SEND_CLOSE_FROM_CLIENT
+I0000 00:00:1729446552.353716    5710 filter_stack_call.cc:757] ops[3]: RECV_INITIAL_METADATA ptr=0xffffbd2d9058
+I0000 00:00:1729446552.353717    5710 filter_stack_call.cc:757] ops[4]: RECV_MESSAGE ptr=0xffffbd2c0da0
+I0000 00:00:1729446552.353719    5710 filter_stack_call.cc:757] ops[5]: RECV_STATUS_ON_CLIENT metadata=0xffffbd23e630 status=0xffffbd23e648 details=0xffffbd23e650
+I0000 00:00:1729446552.353723    5710 filter_stack_call.cc:302] OP[client_idle:0x2573f4e0]:  SEND_INITIAL_METADATA{:path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.353837    5710 promise_based_filter.cc:1355] CLI[client_idle:0x2573f4e0] StartBatch has_promise=false sent_initial_state=INITIAL recv_trailing_state=INITIAL captured={}
+I0000 00:00:1729446552.353841    5710 promise_based_filter.cc:1636] CLI[client_idle:0x2573f4e0] ClientCallData.MakeNextPromise has_promise=false sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.353844    5710 promise_based_filter.cc:994] CLI[client_idle:0x2573f4e0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.353846    5710 promise_based_filter.cc:1697] CLI[client_idle:0x2573f4e0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.353848    5710 promise_based_filter.cc:1077] CLI[client_idle:0x2573f4e0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.353851    5710 promise_based_filter.cc:289] FLUSHER:forward batch:  SEND_INITIAL_METADATA{:path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.353854    5710 channel_stack.cc:264] OP[client_idle:0x2573f4e0]:  SEND_INITIAL_METADATA{:path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.353857    5710 client_channel_filter.cc:2134] chand=0x2573cbb0 calld=0x2573f600: adding pending batch at index 0
+I0000 00:00:1729446552.353858    5710 client_channel_filter.cc:2082] chand=0x2573cbb0 calld=0x2573f600: grabbing resolution mutex to apply service 
+I0000 00:00:1729446552.353860    5710 connectivity_state.cc:174] ConnectivityStateTracker client_channel[0x2573ccd8]: get current state: IDLE
+I0000 00:00:1729446552.353862    5710 client_channel_filter.cc:2088] chand=0x2573cbb0 calld=0x2573f600: triggering exit idle
+I0000 00:00:1729446552.353864    5710 connectivity_state.cc:174] ConnectivityStateTracker client_channel[0x2573ccd8]: get current state: IDLE
+I0000 00:00:1729446552.353867    5710 client_channel_filter.cc:1534] chand=0x2573cbb0: starting name resolution for dns:///127.0.0.1:50051
+I0000 00:00:1729446552.353871    5710 polling_resolver.cc:63] [polling resolver 0x2572b370] created
+I0000 00:00:1729446552.353873    5710 connectivity_state.cc:174] ConnectivityStateTracker client_channel[0x2573ccd8]: get current state: IDLE
+I0000 00:00:1729446552.353875    5710 connectivity_state.cc:152] ConnectivityStateTracker client_channel[0x2573ccd8]: IDLE -> CONNECTING (started resolving, OK)
+I0000 00:00:1729446552.353891    5710 grpc_ares_wrapper.cc:584] (c-ares resolver) request:0x25708ba0 c-ares address sorting: input[0]=127.0.0.1:50051
+I0000 00:00:1729446552.353914    5710 grpc_ares_wrapper.cc:584] (c-ares resolver) request:0x25708ba0 c-ares address sorting: output[0]=127.0.0.1:50051
+I0000 00:00:1729446552.353917    5710 polling_resolver.cc:250] [polling resolver 0x2572b370] starting resolution, request_=0x25465040
+I0000 00:00:1729446552.353919    5710 client_channel_filter.cc:1546] chand=0x2573cbb0: created resolver=0x2572b370
+I0000 00:00:1729446552.353921    5710 client_channel_filter.cc:1957] chand=0x2573cbb0 calld=0x2573f600: no resolver result yet
+I0000 00:00:1729446552.353923    5710 client_channel_filter.cc:1841] chand=0x2573cbb0 calld=0x2573f600: adding to resolver queued picks list; pollent=pollset:0x2551ec70
+I0000 00:00:1729446552.353928    5710 polling_resolver.cc:153] [polling resolver 0x2572b370] request complete
+I0000 00:00:1729446552.353929    5710 polling_resolver.cc:158] [polling resolver 0x2572b370] returning result: addresses=<1 addresses>, service_config=<null>, resolution_note=
+I0000 00:00:1729446552.353932    5710 client_channel_filter.cc:1254] chand=0x2573cbb0: got resolver result
+I0000 00:00:1729446552.353934    5710 client_channel_filter.cc:1312] chand=0x2573cbb0: resolver returned no service config. Using default service config for channel.
+I0000 00:00:1729446552.353942    5710 client_channel_filter.cc:1467] chand=0x2573cbb0: using service config: "{}"
+I0000 00:00:1729446552.353944    5710 client_channel_filter.cc:1480] chand=0x2573cbb0: using ConfigSelector 0
+I0000 00:00:1729446552.353946    5710 connectivity_state.cc:174] ConnectivityStateTracker client_channel[0x2573ccd8]: get current state: CONNECTING
+I0000 00:00:1729446552.353949    5710 client_channel_filter.cc:1456] chand=0x2573cbb0: created new LB policy 0x25708ba0
+I0000 00:00:1729446552.353950    5710 client_channel_filter.cc:1432] chand=0x2573cbb0: Updating child policy 0x25708ba0
+I0000 00:00:1729446552.353952    5710 child_policy_handler.cc:226] [child_policy_handler 0x25708ba0] creating new child policy pick_first
+I0000 00:00:1729446552.353955    5710 pick_first.cc:423] Pick First 0x256a0ae0 created.
+I0000 00:00:1729446552.353957    5710 child_policy_handler.cc:288] [child_policy_handler 0x25708ba0] created new LB policy "pick_first" (0x256a0ae0)
+I0000 00:00:1729446552.353959    5710 child_policy_handler.cc:245] [child_policy_handler 0x25708ba0] updating child policy 0x256a0ae0
+I0000 00:00:1729446552.353961    5710 pick_first.cc:513] Pick First 0x256a0ae0 received update
+I0000 00:00:1729446552.353965    5710 pick_first.cc:988] [PF 0x256a0ae0] Creating subchannel list 0x25711ae0 - channel args: {grpc.client_channel_factory=0x2564a6e0, grpc.internal.channel_credentials=0x2573b140, grpc.internal.channelz_channel_node=0x2572b230, grpc.internal.client_channel_call_destination=0xffffbee53b88, grpc.internal.event_engine=0x256d8a70, grpc.primary_user_agent=grpc-python/1.67.0, grpc.resource_quota=0x256f8560, grpc.server_uri=dns:///127.0.0.1:50051}
+I0000 00:00:1729446552.353981    5710 init.cc:130] grpc_init(void)
+I0000 00:00:1729446552.353987    5710 client_channel_filter.cc:500] chand=0x2573cbb0: creating subchannel wrapper 0x25430080 for subchannel 0x25751ce0
+I0000 00:00:1729446552.353990    5710 pick_first.cc:1006] [PF 0x256a0ae0] subchannel list 0x25711ae0 index 0: Created subchannel 0x25430080 for address addrs=[127.0.0.1:50051]
+I0000 00:00:1729446552.353993    5710 pick_first.cc:782] [PF 0x256a0ae0] subchannel list 0x25711ae0 index 0: creating subchannel data
+I0000 00:00:1729446552.353995    5710 pick_first.cc:668] [PF 0x256a0ae0] subchannel state 0x2555abe0 (subchannel 0x25430080): starting watch
+I0000 00:00:1729446552.353998    5710 client_channel_filter.cc:658] chand=0x2573cbb0: connectivity change for subchannel wrapper 0x25430080 subchannel 0x25751ce0hopping into work_serializer
+I0000 00:00:1729446552.354001    5710 client_channel_filter.cc:1491] chand=0x2573cbb0: switching to ConfigSelector 0
+I0000 00:00:1729446552.354004    5710 channel_stack.cc:121] CHANNEL_STACK: init DynamicFilters
+I0000 00:00:1729446552.354006    5710 channel_stack.cc:123] CHANNEL_STACK:   filter retry_filter
+I0000 00:00:1729446552.354009    5710 client_channel_filter.cc:1828] chand=0x2573cbb0 calld=0x2573f600: removing from resolver queued picks list
+I0000 00:00:1729446552.354022    5710 polling_resolver.cc:186] [polling resolver 0x2572b370] result status from channel: OK
+I0000 00:00:1729446552.354026    5710 client_channel_filter.cc:681] chand=0x2573cbb0: processing connectivity change in work serializer for subchannel wrapper 0x25430080 subchannel 0x25751ce0 watcher=0x2574ef80 state=IDLE status=OK
+I0000 00:00:1729446552.354029    5710 pick_first.cc:738] [PF 0x256a0ae0] subchannel state 0x2555abe0 (subchannel 0x25430080): connectivity changed: new_state=IDLE, status=OK, watcher=0x2574ef80, subchannel_data_=0x256e2cd0, pick_first_->selected_=0
+I0000 00:00:1729446552.354031    5710 pick_first.cc:793] [PF 0x256a0ae0] subchannel list 0x25711ae0 index 0 of 1 (subchannel_state 0x2555abe0): connectivity changed: old_state=N/A, new_state=IDLE, status=OK, seen_transient_failure=false, p->selected_=0, p->subchannel_list_=0x25711ae0, p->subchannel_list_->shutting_down_=false
+I0000 00:00:1729446552.354041    5710 handshaker.cc:84] handshake_manager 0x25709100: adding handshaker tcp_connect [0x25526100] at index 0
+I0000 00:00:1729446552.354044    5710 handshaker.cc:84] handshake_manager 0x25709100: adding handshaker http_connect [0x25747ad0] at index 1
+I0000 00:00:1729446552.354045    5710 handshaker.cc:84] handshake_manager 0x25709100: adding handshaker endpoint_info [0x256c4470] at index 2
+I0000 00:00:1729446552.354080    5710 handshaker.cc:84] handshake_manager 0x25709100: adding handshaker security [0x254c15d0] at index 3
+I0000 00:00:1729446552.354084    5710 posix_engine.cc:512] PosixEventEngine:0x253d0ec0 scheduling callback:{000000002571f9b0,0000000000000000}
+I0000 00:00:1729446552.354086    5710 handshaker.cc:155] handshake_manager 0x25709100: error=OK shutdown=false index=0, args={endpoint=(nil), args={grpc.client_channel_factory=0x2564a6e0, grpc.default_authority=127.0.0.1:50051, grpc.internal.channel_credentials=0x2573b140, grpc.internal.client_channel_call_destination=0xffffbee53b88, grpc.internal.event_engine=0x2572b210, grpc.internal.security_connector=0x2560a3d0, grpc.internal.subchannel_pool=0x25729a60, grpc.internal.tcp_handshaker_bind_endpoint_to_pollset=1, grpc.internal.tcp_handshaker_resolved_address=ipv4:127.0.0.1:50051, grpc.primary_user_agent=grpc-python/1.67.0, grpc.resource_quota=0x256f8560, grpc.server_uri=dns:///127.0.0.1:50051}, read_buffer.Length()=0, exit_early=0}
+I0000 00:00:1729446552.354092    5710 handshaker.cc:191] handshake_manager 0x25709100: calling handshaker tcp_connect [0x25526100] at index 0
+I0000 00:00:1729446552.354115    5719 client_channel_filter.cc:1856] chand=0x2573cbb0 calld=0x2573f600: applying service config to call
+I0000 00:00:1729446552.354129    5719 client_channel_filter.cc:2305] chand=0x2573cbb0 calld=0x2573f600: creating dynamic call stack on channel_stack=0x254c4ee0
+I0000 00:00:1729446552.354133    5719 retry_filter_legacy_call_data.cc:1430] chand=0x25478fe0 calld=0xffffa4000fe0: created call
+I0000 00:00:1729446552.354136    5719 client_channel_filter.cc:2206] chand=0x2573cbb0 calld=0x2573f600: starting 1 pending batches on dynamic_call=0xffffa4000f80
+I0000 00:00:1729446552.354138    5719 dynamic_filters.cc:79] OP[retry_filter:0xffffa4000fc0]:  SEND_INITIAL_METADATA{:path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.354267    5719 retry_filter_legacy_call_data.cc:1730] chand=0x25478fe0 calld=0xffffa4000fe0: adding pending batch at index 0
+I0000 00:00:1729446552.354286    5719 retry_filter_legacy_call_data.cc:1615] chand=0x25478fe0 calld=0xffffa4000fe0: creating call attempt
+I0000 00:00:1729446552.354293    5719 client_channel_filter.cc:2447] chand=0x2573cbb0 lb_call=0xffffa40023a0: created
+I0000 00:00:1729446552.354334    5719 retry_filter_legacy_call_data.cc:142] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: created attempt, lb_call=0xffffa40023a0
+I0000 00:00:1729446552.354341    5719 retry_filter_legacy_call_data.cc:510] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: constructing retriable batches
+I0000 00:00:1729446552.354344    5719 retry_filter_legacy_call_data.cc:704] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: creating batch 0xffffa4002540
+I0000 00:00:1729446552.354349    5719 retry_filter_legacy_call_data.cc:1345] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: starting calld->send_messages[0]
+I0000 00:00:1729446552.354352    5719 retry_filter_legacy_call_data.cc:309] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: adding batch (start replayable pending batch on call attempt):  SEND_INITIAL_METADATA{:path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.354359    5719 retry_filter_legacy_call_data.cc:518] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: starting 1 retriable batches on lb_call=0xffffa40023a0
+I0000 00:00:1729446552.354362    5719 client_channel_filter.cc:2847] chand=0x2573cbb0 lb_call=0xffffa40023a0: batch started from above:  SEND_INITIAL_METADATA{:path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA, call_attempt_tracer()=0
+I0000 00:00:1729446552.354366    5719 client_channel_filter.cc:2751] chand=0x2573cbb0 lb_call=0xffffa40023a0: adding pending batch at index 0
+I0000 00:00:1729446552.354368    5719 client_channel_filter.cc:2547] chand=0x2573cbb0 lb_call=0xffffa40023a0: grabbing LB mutex to get picker
+I0000 00:00:1729446552.354370    5719 client_channel_filter.cc:2565] chand=0x2573cbb0 lb_call=0xffffa40023a0: performing pick with picker=0x2574ef00
+I0000 00:00:1729446552.354372    5719 client_channel_filter.cc:2659] chand=0x2573cbb0 lb_call=0xffffa40023a0: LB pick queued
+I0000 00:00:1729446552.354374    5719 client_channel_filter.cc:2502] chand=0x2573cbb0 lb_call=0xffffa40023a0: adding to queued picks list
+I0000 00:00:1729446552.354376    5719 client_channel_filter.cc:2246] chand=0x2573cbb0 calld=0x2573f600: cancelling resolver queued pick: error=OK self=0x256a3f90 calld->resolver_pick_canceller=0
+I0000 00:00:1729446552.354243    5710 tcp_client_posix.cc:382] CLIENT_CONNECT: ipv4:127.0.0.1:50051: asynchronously connecting fd 0x256a6840
+I0000 00:00:1729446552.354470    5710 client_channel_filter.cc:658] chand=0x2573cbb0: connectivity change for subchannel wrapper 0x25430080 subchannel 0x25751ce0hopping into work_serializer
+I0000 00:00:1729446552.354476    5710 client_channel_filter.cc:681] chand=0x2573cbb0: processing connectivity change in work serializer for subchannel wrapper 0x25430080 subchannel 0x25751ce0 watcher=0x2574ef80 state=CONNECTING status=OK
+I0000 00:00:1729446552.354479    5710 pick_first.cc:738] [PF 0x256a0ae0] subchannel state 0x2555abe0 (subchannel 0x25430080): connectivity changed: new_state=CONNECTING, status=OK, watcher=0x2574ef80, subchannel_data_=0x256e2cd0, pick_first_->selected_=0
+I0000 00:00:1729446552.354492    5710 pick_first.cc:793] [PF 0x256a0ae0] subchannel list 0x25711ae0 index 0 of 1 (subchannel_state 0x2555abe0): connectivity changed: old_state=IDLE, new_state=CONNECTING, status=OK, seen_transient_failure=false, p->selected_=0, p->subchannel_list_=0x25711ae0, p->subchannel_list_->shutting_down_=false
+I0000 00:00:1729446552.354496    5710 client_channel_filter.cc:982] chand=0x2573cbb0: update: state=CONNECTING status=(OK) picker=0x2574a350
+I0000 00:00:1729446552.354498    5710 connectivity_state.cc:174] ConnectivityStateTracker client_channel[0x2573ccd8]: get current state: CONNECTING
+I0000 00:00:1729446552.354501    5710 client_channel_filter.cc:2489] chand=0x2573cbb0 lb_call=0xffffa40023a0: removing from queued picks list
+I0000 00:00:1729446552.354503    5710 client_channel_filter.cc:2547] chand=0x2573cbb0 lb_call=0xffffa40023a0: grabbing LB mutex to get picker
+I0000 00:00:1729446552.354505    5710 client_channel_filter.cc:2565] chand=0x2573cbb0 lb_call=0xffffa40023a0: performing pick with picker=0x2574a350
+I0000 00:00:1729446552.354507    5710 client_channel_filter.cc:2659] chand=0x2573cbb0 lb_call=0xffffa40023a0: LB pick queued
+I0000 00:00:1729446552.354508    5710 client_channel_filter.cc:2502] chand=0x2573cbb0 lb_call=0xffffa40023a0: adding to queued picks list
+I0000 00:00:1729446552.354510    5710 client_channel_filter.cc:3043] chand=0x2573cbb0 lb_call=0xffffa40023a0: cancelling queued pick: error=OK self=0x256d8af0 calld->pick_canceller=0x2540b8c0
+I0000 00:00:1729446552.354526    5710 completion_queue.cc:959] grpc_completion_queue_next(cq=0x2551eaf0, deadline=gpr_timespec { tv_sec: 1729446552, tv_nsec: 554526573, clock_type: 1 }, reserved=0)
+I0000 00:00:1729446552.354532    5710 tcp_client_posix.cc:182] CLIENT_CONNECT: ipv4:127.0.0.1:50051: on_writable: error=OK
+I0000 00:00:1729446552.354536    5710 memory_quota.cc:550] Adding allocator 0x2550e610
+I0000 00:00:1729446552.354542    5710 executor.cc:296] EXECUTOR (default-executor) try to schedule 0x255261f8 (short) to thread 0
+I0000 00:00:1729446552.354549    5710 tcp_client_posix.cc:144] CLIENT_CONNECT: ipv4:127.0.0.1:50051: on_alarm: error=CANCELLED
+I0000 00:00:1729446552.354559    5716 executor.cc:241] EXECUTOR (default-executor) [0]: execute
+I0000 00:00:1729446552.354564    5716 executor.cc:110] EXECUTOR (default-executor) run 0x255261f8
+I0000 00:00:1729446552.354574    5716 executor.cc:218] EXECUTOR (default-executor) [0]: step (sub_depth=1)
+I0000 00:00:1729446552.354600    5722 handshaker.cc:155] handshake_manager 0x25709100: error=OK shutdown=false index=1, args={endpoint=0x256a07f0, args={grpc.client_channel_factory=0x2564a6e0, grpc.default_authority=127.0.0.1:50051, grpc.internal.channel_credentials=0x2573b140, grpc.internal.client_channel_call_destination=0xffffbee53b88, grpc.internal.event_engine=0x2572b210, grpc.internal.security_connector=0x2560a3d0, grpc.internal.subchannel_pool=0x25729a60, grpc.primary_user_agent=grpc-python/1.67.0, grpc.resource_quota=0x256f8560, grpc.server_uri=dns:///127.0.0.1:50051}, read_buffer.Length()=0, exit_early=0}
+I0000 00:00:1729446552.354624    5722 handshaker.cc:191] handshake_manager 0x25709100: calling handshaker http_connect [0x25747ad0] at index 1
+I0000 00:00:1729446552.354635    5722 handshaker.cc:155] handshake_manager 0x25709100: error=OK shutdown=false index=2, args={endpoint=0x256a07f0, args={grpc.client_channel_factory=0x2564a6e0, grpc.default_authority=127.0.0.1:50051, grpc.internal.channel_credentials=0x2573b140, grpc.internal.client_channel_call_destination=0xffffbee53b88, grpc.internal.event_engine=0x2572b210, grpc.internal.security_connector=0x2560a3d0, grpc.internal.subchannel_pool=0x25729a60, grpc.primary_user_agent=grpc-python/1.67.0, grpc.resource_quota=0x256f8560, grpc.server_uri=dns:///127.0.0.1:50051}, read_buffer.Length()=0, exit_early=0}
+I0000 00:00:1729446552.354642    5722 handshaker.cc:191] handshake_manager 0x25709100: calling handshaker endpoint_info [0x256c4470] at index 2
+I0000 00:00:1729446552.354648    5722 handshaker.cc:155] handshake_manager 0x25709100: error=OK shutdown=false index=3, args={endpoint=0x256a07f0, args={grpc.client_channel_factory=0x2564a6e0, grpc.default_authority=127.0.0.1:50051, grpc.internal.channel_credentials=0x2573b140, grpc.internal.client_channel_call_destination=0xffffbee53b88, grpc.internal.endpoint_local_address=ipv4:127.0.0.1:51968, grpc.internal.endpoint_peer_address=ipv4:127.0.0.1:50051, grpc.internal.event_engine=0xffff98000f00, grpc.internal.security_connector=0x2560a3d0, grpc.internal.subchannel_pool=0x25729a60, grpc.primary_user_agent=grpc-python/1.67.0, grpc.resource_quota=0x256f8560, grpc.server_uri=dns:///127.0.0.1:50051}, read_buffer.Length()=0, exit_early=0}
+I0000 00:00:1729446552.354652    5722 handshaker.cc:191] handshake_manager 0x25709100: calling handshaker security [0x254c15d0] at index 3
+I0000 00:00:1729446552.354655    5722 security_context.cc:274] grpc_auth_context_add_cstring_property(ctx=0xffff98001070, name=transport_security_type, value=insecure)
+I0000 00:00:1729446552.354657    5722 security_context.cc:254] grpc_auth_context_add_property(ctx=0xffff98001070, name=security_level, value=TSI_SECURITY_NONE, value_length=17)
+I0000 00:00:1729446552.354659    5722 security_context.cc:212] grpc_auth_context_find_properties_by_name(ctx=0xffff98001070, name=security_level)
+I0000 00:00:1729446552.354661    5722 security_context.cc:185] grpc_auth_property_iterator_next(it=0xffffb5fbe310)
+I0000 00:00:1729446552.354664    5722 handshaker.cc:155] handshake_manager 0x25709100: error=OK shutdown=false index=4, args={endpoint=0x256a07f0, args={grpc.auth_context=0xffff98001070, grpc.client_channel_factory=0x2564a6e0, grpc.default_authority=127.0.0.1:50051, grpc.internal.channel_credentials=0x2573b140, grpc.internal.client_channel_call_destination=0xffffbee53b88, grpc.internal.endpoint_local_address=ipv4:127.0.0.1:51968, grpc.internal.endpoint_peer_address=ipv4:127.0.0.1:50051, grpc.internal.event_engine=0xffff98000f00, grpc.internal.security_connector=0x2560a3d0, grpc.internal.subchannel_pool=0x25729a60, grpc.primary_user_agent=grpc-python/1.67.0, grpc.resource_quota=0x256f8560, grpc.server_uri=dns:///127.0.0.1:50051}, read_buffer.Length()=0, exit_early=0}
+I0000 00:00:1729446552.354668    5722 handshaker.cc:169] handshake_manager 0x25709100: handshaking complete -- scheduling on_handshake_done with error=OK
+I0000 00:00:1729446552.354672    5722 init.cc:130] grpc_init(void)
+I0000 00:00:1729446552.354673    5722 memory_quota.cc:550] Adding allocator 0x2571f9c0
+I0000 00:00:1729446552.354689    5722 flow_control.cc:236] [flowctl] UPDATE SETTING INITIAL_WINDOW_SIZE from 65535 to 4194304
+I0000 00:00:1729446552.354700    5722 flow_control.cc:236] [flowctl] UPDATE SETTING MAX_FRAME_SIZE from 16384 to 4194304
+I0000 00:00:1729446552.354702    5722 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state IDLE -> WRITING [TRANSPORT_FLOW_CONTROL]
+I0000 00:00:1729446552.354704    5722 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING -> WRITING+MORE [INITIAL_WRITE]
+I0000 00:00:1729446552.354710    5722 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING+MORE -> WRITING [begin write in current thread]
+I0000 00:00:1729446552.354712    5722 chttp2_transport.cc:1081] CLIENT[0xffff98001d80]: Write 82 bytes
+I0000 00:00:1729446552.354714    5722 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.354716    5722 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.354717    5722 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.354732    5722 tcp_posix.cc:1858] write: OK
+I0000 00:00:1729446552.354734    5722 chttp2_transport.cc:1094] CLIENT[0xffff98001d80]: Finish write
+I0000 00:00:1729446552.354736    5722 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING -> IDLE [finish writing]
+I0000 00:00:1729446552.354739    5722 posix_engine.cc:512] PosixEventEngine:0x253d0ec0 scheduling callback:{0000ffff98003af0,0000000000000001}
+I0000 00:00:1729446552.354743    5722 tcp_posix.cc:702] TCP:0x256a07f0 notify_on_read
+I0000 00:00:1729446552.354757    5710 tcp_posix.cc:1109] TCP:0x256a07f0 got_read: OK
+I0000 00:00:1729446552.354760    5710 tcp_posix.cc:898] TCP:0x256a07f0 do_read
+I0000 00:00:1729446552.354766    5710 tcp_posix.cc:834] TCP:0x256a07f0 call_cb 0xffff98002020 true:0xffff98001d80
+I0000 00:00:1729446552.354768    5710 tcp_posix.cc:837] READ 0x256a07f0 (peer=ipv4:127.0.0.1:50051) error=OK
+I0000 00:00:1729446552.354771    5710 parsing.cc:334] INCOMING[0xffff98001d80]: SETTINGS len:24 id:0x00000000
+I0000 00:00:1729446552.354774    5710 frame_settings.cc:175] 0xffff98001d80[cli] adding 4128769 for initial_window change
+I0000 00:00:1729446552.354775    5710 frame_settings.cc:190] CHTTP2:CLI:ipv4:127.0.0.1:50051: got setting INITIAL_WINDOW_SIZE = 4194304
+I0000 00:00:1729446552.354777    5710 frame_settings.cc:190] CHTTP2:CLI:ipv4:127.0.0.1:50051: got setting MAX_FRAME_SIZE = 4194304
+I0000 00:00:1729446552.354779    5710 frame_settings.cc:190] CHTTP2:CLI:ipv4:127.0.0.1:50051: got setting MAX_HEADER_LIST_SIZE = 16384
+I0000 00:00:1729446552.354781    5710 frame_settings.cc:190] CHTTP2:CLI:ipv4:127.0.0.1:50051: got setting GRPC_ALLOW_TRUE_BINARY_METADATA = 1
+I0000 00:00:1729446552.354783    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state IDLE -> WRITING [SETTINGS_ACK]
+I0000 00:00:1729446552.354786    5710 parsing.cc:334] INCOMING[0xffff98001d80]: WINDOW_UPDATE len:4 id:0x00000000
+I0000 00:00:1729446552.354788    5710 tcp_posix.cc:702] TCP:0x256a07f0 notify_on_read
+I0000 00:00:1729446552.354794    5710 channel_stack.cc:121] CHANNEL_STACK: init subchannel
+I0000 00:00:1729446552.354795    5710 channel_stack.cc:123] CHANNEL_STACK:   filter authority
+I0000 00:00:1729446552.354797    5710 channel_stack.cc:123] CHANNEL_STACK:   filter client-auth-filter
+I0000 00:00:1729446552.354798    5710 channel_stack.cc:123] CHANNEL_STACK:   filter message_size
+I0000 00:00:1729446552.354799    5710 channel_stack.cc:123] CHANNEL_STACK:   filter http-client
+I0000 00:00:1729446552.354801    5710 channel_stack.cc:123] CHANNEL_STACK:   filter compression
+I0000 00:00:1729446552.354802    5710 channel_stack.cc:123] CHANNEL_STACK:   filter connected
+I0000 00:00:1729446552.354808    5710 subchannel.cc:894] subchannel 0x25751ce0 {address=ipv4:127.0.0.1:50051, args={grpc.client_channel_factory=0x2564a6e0, grpc.default_authority=127.0.0.1:50051, grpc.internal.channel_credentials=0x2573b140, grpc.internal.client_channel_call_destination=0xffffbee53b88, grpc.internal.event_engine=0x2572b210, grpc.internal.security_connector=0x2560a3d0, grpc.internal.subchannel_pool=0x25729a60, grpc.primary_user_agent=grpc-python/1.67.0, grpc.resource_quota=0x256f8560, grpc.server_uri=dns:///127.0.0.1:50051}}: new connected subchannel at 0x256f3ba0
+I0000 00:00:1729446552.354818    5710 chttp2_transport.cc:2036] perform_transport_op[t=0xffff98001d80]:  START_CONNECTIVITY_WATCH:watcher=0xffff98001710:from=READY BIND_POLLSET_SET
+I0000 00:00:1729446552.354821    5710 client_channel_filter.cc:658] chand=0x2573cbb0: connectivity change for subchannel wrapper 0x25430080 subchannel 0x25751ce0hopping into work_serializer
+I0000 00:00:1729446552.354824    5710 client_channel_filter.cc:681] chand=0x2573cbb0: processing connectivity change in work serializer for subchannel wrapper 0x25430080 subchannel 0x25751ce0 watcher=0x2574ef80 state=READY status=OK
+I0000 00:00:1729446552.354827    5710 pick_first.cc:738] [PF 0x256a0ae0] subchannel state 0x2555abe0 (subchannel 0x25430080): connectivity changed: new_state=READY, status=OK, watcher=0x2574ef80, subchannel_data_=0x256e2cd0, pick_first_->selected_=0
+I0000 00:00:1729446552.354829    5710 pick_first.cc:690] Pick First 0x256a0ae0 selected subchannel 0x25430080
+I0000 00:00:1729446552.354831    5710 client_channel_filter.cc:982] chand=0x2573cbb0: update: state=READY status=(OK) picker=0x25622720
+I0000 00:00:1729446552.354833    5710 connectivity_state.cc:174] ConnectivityStateTracker client_channel[0x2573ccd8]: get current state: CONNECTING
+I0000 00:00:1729446552.354835    5710 connectivity_state.cc:152] ConnectivityStateTracker client_channel[0x2573ccd8]: CONNECTING -> READY (helper, OK)
+I0000 00:00:1729446552.354839    5710 client_channel_filter.cc:2489] chand=0x2573cbb0 lb_call=0xffffa40023a0: removing from queued picks list
+I0000 00:00:1729446552.354843    5710 pick_first.cc:1021] [PF 0x256a0ae0] Shutting down subchannel_list 0x25711ae0
+I0000 00:00:1729446552.354846    5710 pick_first.cc:1016] [PF 0x256a0ae0] Destroying subchannel_list 0x25711ae0
+I0000 00:00:1729446552.354850    5710 client_channel_filter.cc:2547] chand=0x2573cbb0 lb_call=0xffffa40023a0: grabbing LB mutex to get picker
+I0000 00:00:1729446552.354853    5710 client_channel_filter.cc:2565] chand=0x2573cbb0 lb_call=0xffffa40023a0: performing pick with picker=0x25622720
+I0000 00:00:1729446552.354856    5710 client_channel_filter.cc:2624] chand=0x2573cbb0 lb_call=0xffffa40023a0: LB pick succeeded: subchannel=0x25430080
+I0000 00:00:1729446552.354996    5710 client_channel_filter.cc:3129] chand=0x2573cbb0 lb_call=0xffffa40023a0: create subchannel_call=0x25747af0: error=OK
+I0000 00:00:1729446552.355001    5710 client_channel_filter.cc:2822] chand=0x2573cbb0 lb_call=0xffffa40023a0: starting 1 pending batches on subchannel_call=0x25747af0
+I0000 00:00:1729446552.355003    5710 subchannel.cc:276] OP[authority:0x25747b70]:  SEND_INITIAL_METADATA{:path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355008    5710 promise_based_filter.cc:1355] CLI[authority:0x25747b70] StartBatch has_promise=false sent_initial_state=INITIAL recv_trailing_state=INITIAL captured={}
+I0000 00:00:1729446552.355011    5710 promise_based_filter.cc:1636] CLI[authority:0x25747b70] ClientCallData.MakeNextPromise has_promise=false sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.355013    5710 promise_based_filter.cc:994] CLI[authority:0x25747b70] ClientCallData.PollContext.Run has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.355016    5710 promise_based_filter.cc:1697] CLI[authority:0x25747b70] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.355018    5710 promise_based_filter.cc:1077] CLI[authority:0x25747b70] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355020    5710 promise_based_filter.cc:289] FLUSHER:forward batch:  SEND_INITIAL_METADATA{:authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355023    5710 channel_stack.cc:264] OP[authority:0x25747b70]:  SEND_INITIAL_METADATA{:authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355026    5710 promise_based_filter.cc:1355] CLI[client-auth-filter:0x25747b88] StartBatch has_promise=false sent_initial_state=INITIAL recv_trailing_state=INITIAL captured={}
+I0000 00:00:1729446552.355029    5710 promise_based_filter.cc:994] CLI[client-auth-filter:0x25747b88] ClientCallData.PollContext.Run has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.355032    5710 promise_based_filter.cc:1636] CLI[client-auth-filter:0x25747b88] ClientCallData.MakeNextPromise has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.355034    5710 promise_based_filter.cc:1697] CLI[client-auth-filter:0x25747b88] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.355036    5710 promise_based_filter.cc:1077] CLI[client-auth-filter:0x25747b88] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355037    5710 promise_based_filter.cc:289] FLUSHER:forward batch:  SEND_INITIAL_METADATA{:authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355040    5710 channel_stack.cc:264] OP[client-auth-filter:0x25747b88]:  SEND_INITIAL_METADATA{:authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355043    5710 promise_based_filter.cc:1355] CLI[message_size:0x25747ba0] StartBatch has_promise=false sent_initial_state=INITIAL recv_trailing_state=INITIAL captured={}
+I0000 00:00:1729446552.355045    5710 promise_based_filter.cc:329] CLI[message_size:0x25747ba0] SendMessage.StartOp st=INITIAL
+I0000 00:00:1729446552.355046    5710 promise_based_filter.cc:602] CLI[message_size:0x25747ba0] ReceiveMessage.StartOp st=INITIAL
+I0000 00:00:1729446552.355049    5710 promise_based_filter.cc:1636] CLI[message_size:0x25747ba0] ClientCallData.MakeNextPromise has_promise=false sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata,send_message}
+I0000 00:00:1729446552.355051    5710 promise_based_filter.cc:355] CLI[message_size:0x25747ba0] SendMessage.GotPipe st=GOT_BATCH_NO_PIPE
+I0000 00:00:1729446552.355052    5710 promise_based_filter.cc:642] CLI[message_size:0x25747ba0] ReceiveMessage.GotPipe st=FORWARDED_BATCH_NO_PIPE
+I0000 00:00:1729446552.355054    5710 promise_based_filter.cc:994] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata,send_message}
+I0000 00:00:1729446552.355056    5710 promise_based_filter.cc:471] CLI[message_size:0x25747ba0] SendMessage.WakeInsideCombiner st=GOT_BATCH
+I0000 00:00:1729446552.355059    5710 promise_based_filter.cc:518] CLI[message_size:0x25747ba0] SendMessage.WakeInsideCombiner next complete, result.has_value=true
+I0000 00:00:1729446552.355061    5710 promise_based_filter.cc:774] CLI[message_size:0x25747ba0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.355063    5710 promise_based_filter.cc:1697] CLI[message_size:0x25747ba0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata}
+I0000 00:00:1729446552.355065    5710 promise_based_filter.cc:1077] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355066    5710 promise_based_filter.cc:289] FLUSHER:forward batch:  SEND_INITIAL_METADATA{:authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355069    5710 channel_stack.cc:264] OP[message_size:0x25747ba0]:  SEND_INITIAL_METADATA{:authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355072    5710 promise_based_filter.cc:1355] CLI[http-client:0x25747bb8] StartBatch has_promise=false sent_initial_state=INITIAL recv_trailing_state=INITIAL captured={} recv_initial_metadata=INITIAL
+I0000 00:00:1729446552.355074    5710 promise_based_filter.cc:1636] CLI[http-client:0x25747bb8] ClientCallData.MakeNextPromise has_promise=false sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata} recv_initial_metadata=HOOKED_WAITING_FOR_PIPE
+I0000 00:00:1729446552.355076    5710 promise_based_filter.cc:994] CLI[http-client:0x25747bb8] ClientCallData.PollContext.Run has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355078    5710 promise_based_filter.cc:1697] CLI[http-client:0x25747bb8] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355080    5710 promise_based_filter.cc:1077] CLI[http-client:0x25747bb8] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355082    5710 promise_based_filter.cc:289] FLUSHER:forward batch:  SEND_INITIAL_METADATA{user-agent: grpc-python/1.67.0 grpc-c/44.0.0 (linux; chttp2), :authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false, te: trailers, content-type: application/grpc, :scheme: http, :method: POST} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355087    5710 channel_stack.cc:264] OP[http-client:0x25747bb8]:  SEND_INITIAL_METADATA{user-agent: grpc-python/1.67.0 grpc-c/44.0.0 (linux; chttp2), :authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false, te: trailers, content-type: application/grpc, :scheme: http, :method: POST} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355091    5710 promise_based_filter.cc:1355] CLI[compression:0x25747bd0] StartBatch has_promise=false sent_initial_state=INITIAL recv_trailing_state=INITIAL captured={} recv_initial_metadata=INITIAL
+I0000 00:00:1729446552.355092    5710 promise_based_filter.cc:329] CLI[compression:0x25747bd0] SendMessage.StartOp st=INITIAL
+I0000 00:00:1729446552.355094    5710 promise_based_filter.cc:602] CLI[compression:0x25747bd0] ReceiveMessage.StartOp st=INITIAL
+I0000 00:00:1729446552.355096    5710 promise_based_filter.cc:1636] CLI[compression:0x25747bd0] ClientCallData.MakeNextPromise has_promise=false sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata,send_message} recv_initial_metadata=HOOKED_WAITING_FOR_PIPE
+I0000 00:00:1729446552.355098    5710 promise_based_filter.cc:355] CLI[compression:0x25747bd0] SendMessage.GotPipe st=GOT_BATCH_NO_PIPE
+I0000 00:00:1729446552.355099    5710 promise_based_filter.cc:642] CLI[compression:0x25747bd0] ReceiveMessage.GotPipe st=FORWARDED_BATCH_NO_PIPE
+I0000 00:00:1729446552.355101    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata,send_message} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355103    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=GOT_BATCH
+I0000 00:00:1729446552.355104    5710 compression_filter.cc:114] CompressMessage: len=5 alg=0 flags=0
+I0000 00:00:1729446552.355106    5710 promise_based_filter.cc:518] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner next complete, result.has_value=true
+I0000 00:00:1729446552.355108    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=no
+I0000 00:00:1729446552.355110    5710 promise_based_filter.cc:1697] CLI[compression:0x25747bd0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=QUEUED recv_trailing_state=QUEUED captured={send_initial_metadata} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355112    5710 promise_based_filter.cc:1077] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355114    5710 promise_based_filter.cc:289] FLUSHER:forward batch:  SEND_INITIAL_METADATA{user-agent: grpc-python/1.67.0 grpc-c/44.0.0 (linux; chttp2), :authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false, grpc-accept-encoding: identity, deflate, gzip, te: trailers, content-type: application/grpc, :scheme: http, :method: POST} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355488    5710 channel_stack.cc:264] OP[compression:0x25747bd0]:  SEND_INITIAL_METADATA{user-agent: grpc-python/1.67.0 grpc-c/44.0.0 (linux; chttp2), :authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false, grpc-accept-encoding: identity, deflate, gzip, te: trailers, content-type: application/grpc, :scheme: http, :method: POST} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355497    5710 chttp2_transport.cc:1690] perform_stream_op[s=0x257482b0; op=0xffffa4002558]:  SEND_INITIAL_METADATA{user-agent: grpc-python/1.67.0 grpc-c/44.0.0 (linux; chttp2), :authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false, grpc-accept-encoding: identity, deflate, gzip, te: trailers, content-type: application/grpc, :scheme: http, :method: POST} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355506    5710 promise_based_filter.cc:994] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355524    5710 promise_based_filter.cc:471] CLI[message_size:0x25747ba0] SendMessage.WakeInsideCombiner st=FORWARDED_BATCH
+I0000 00:00:1729446552.355527    5710 promise_based_filter.cc:774] CLI[message_size:0x25747ba0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.355529    5710 promise_based_filter.cc:1697] CLI[message_size:0x25747ba0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355531    5710 promise_based_filter.cc:1077] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355533    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355535    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=FORWARDED_BATCH
+I0000 00:00:1729446552.355537    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=no
+I0000 00:00:1729446552.355539    5710 promise_based_filter.cc:1697] CLI[compression:0x25747bd0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355541    5710 promise_based_filter.cc:1077] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355543    5710 connectivity_state.cc:118] ConnectivityStateTracker client_transport[0xffff98002148]: add watcher 0xffff98001710
+I0000 00:00:1729446552.355546    5710 chttp2_transport.cc:1614] perform_stream_op_locked[s=0x257482b0; op=0xffffa4002558]:  SEND_INITIAL_METADATA{user-agent: grpc-python/1.67.0 grpc-c/44.0.0 (linux; chttp2), :authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false, grpc-accept-encoding: identity, deflate, gzip, te: trailers, content-type: application/grpc, :scheme: http, :method: POST} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA; on_complete = 0x257480b8
+I0000 00:00:1729446552.355554    5710 stream_lists.cc:124] 0xffff98001d80[0][cli]: add to waiting_for_concurrency
+I0000 00:00:1729446552.355556    5710 stream_lists.cc:72] 0xffff98001d80[0][cli]: pop from waiting_for_concurrency
+I0000 00:00:1729446552.355558    5710 chttp2_transport.cc:1246] HTTP:CLI: Transport 0xffff98001d80 allocating new grpc_chttp2_stream 0x257482b0 to id 1
+I0000 00:00:1729446552.355560    5710 stream_lists.cc:124] 0xffff98001d80[1][cli]: add to writable
+I0000 00:00:1729446552.355563    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING -> WRITING+MORE [START_NEW_STREAM]
+I0000 00:00:1729446552.355566    5710 chttp2_transport.cc:1311] complete_closure_step: t=0xffff98001d80 0x257480b8 refs=3 flags=1 desc=op->on_complete err=OK write_state=WRITING+MORE whence=(null):-1
+I0000 00:00:1729446552.355569    5710 stream_lists.cc:72] 0xffff98001d80[1][cli]: pop from writable
+I0000 00:00:1729446552.355571    5710 writing.cc:437] W:0xffff98001d80 CLIENT[1] im-(sent,send)=(false,true)
+I0000 00:00:1729446552.355577    5710 chttp2_transport.cc:1311] complete_closure_step: t=0xffff98001d80 0x257480b8 refs=2 flags=1 desc=send_initial_metadata_finished err=OK write_state=WRITING+MORE whence=(null):-1
+I0000 00:00:1729446552.355582    5710 chttp2_transport.cc:1311] complete_closure_step: t=0xffff98001d80 0x257480b8 refs=1 flags=1 desc=send_trailing_metadata_finished err=OK write_state=WRITING+MORE whence=(null):-1
+I0000 00:00:1729446552.355589    5710 chttp2_transport.cc:1311] complete_closure_step: t=0xffff98001d80 0x257480b8 refs=0 flags=1 desc=on_write_finished_cb err=OK write_state=WRITING+MORE whence=(null):-1
+I0000 00:00:1729446552.355592    5710 stream_lists.cc:124] 0xffff98001d80[1][cli]: add to writing
+I0000 00:00:1729446552.355594    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING+MORE -> WRITING [begin write in current thread]
+I0000 00:00:1729446552.355595    5710 chttp2_transport.cc:1081] CLIENT[0xffff98001d80]: Write 280 bytes
+I0000 00:00:1729446552.355597    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355598    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355600    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355601    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355602    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355604    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355605    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355606    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355608    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355609    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355610    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355612    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355613    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355614    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355615    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355617    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355618    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355619    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355621    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355622    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355623    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355624    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355626    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355627    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.355772    5710 tcp_posix.cc:1858] write: OK
+I0000 00:00:1729446552.355779    5710 chttp2_transport.cc:1094] CLIENT[0xffff98001d80]: Finish write
+I0000 00:00:1729446552.355782    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING -> IDLE [finish writing]
+I0000 00:00:1729446552.355785    5710 stream_lists.cc:72] 0xffff98001d80[1][cli]: pop from writing
+I0000 00:00:1729446552.355788    5710 promise_based_filter.cc:401] CLI[compression:0x25747bd0] SendMessage.OnComplete st=FORWARDED_BATCH status=OK
+I0000 00:00:1729446552.355792    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355794    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=BATCH_COMPLETED status=OK
+I0000 00:00:1729446552.355797    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=no
+I0000 00:00:1729446552.355800    5710 promise_based_filter.cc:1697] CLI[compression:0x25747bd0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355802    5710 promise_based_filter.cc:1077] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355805    5710 promise_based_filter.cc:401] CLI[message_size:0x25747ba0] SendMessage.OnComplete st=FORWARDED_BATCH status=OK
+I0000 00:00:1729446552.355807    5710 promise_based_filter.cc:994] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355809    5710 promise_based_filter.cc:471] CLI[message_size:0x25747ba0] SendMessage.WakeInsideCombiner st=BATCH_COMPLETED status=OK
+I0000 00:00:1729446552.355810    5710 promise_based_filter.cc:774] CLI[message_size:0x25747ba0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.355812    5710 promise_based_filter.cc:1697] CLI[message_size:0x25747ba0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355814    5710 promise_based_filter.cc:1077] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355816    5710 retry_filter_legacy_call_data.cc:1234] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770 batch_data=0xffffa4002540: got on_complete, error=OK, batch= SEND_INITIAL_METADATA{user-agent: grpc-python/1.67.0 grpc-c/44.0.0 (linux; chttp2), :authority: 127.0.0.1:50051, :path: /helloworld.Greeter/SayHello, GrpcRegisteredMethod: 0x1, WaitForReady: false, grpc-accept-encoding: identity, deflate, gzip, te: trailers, content-type: application/grpc, :scheme: http, :method: POST} SEND_MESSAGE:flags=0x00000000:len=5 SEND_TRAILING_METADATA{} RECV_INITIAL_METADATA RECV_MESSAGE RECV_TRAILING_METADATA
+I0000 00:00:1729446552.355827    5710 retry_filter_legacy_call_data.cc:1846] chand=0x25478fe0 calld=0xffffa4000fe0: completed pending batch at index 0
+I0000 00:00:1729446552.355830    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355832    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=IDLE
+I0000 00:00:1729446552.355833    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=no
+I0000 00:00:1729446552.355835    5710 promise_based_filter.cc:1697] CLI[compression:0x25747bd0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355837    5710 promise_based_filter.cc:1077] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE
+I0000 00:00:1729446552.355839    5710 promise_based_filter.cc:994] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355840    5710 promise_based_filter.cc:471] CLI[message_size:0x25747ba0] SendMessage.WakeInsideCombiner st=IDLE
+I0000 00:00:1729446552.355842    5710 promise_based_filter.cc:774] CLI[message_size:0x25747ba0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.355844    5710 promise_based_filter.cc:1697] CLI[message_size:0x25747ba0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.355845    5710 promise_based_filter.cc:1077] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.356163    5710 tcp_posix.cc:1109] TCP:0x256a07f0 got_read: OK
+I0000 00:00:1729446552.356167    5710 tcp_posix.cc:898] TCP:0x256a07f0 do_read
+I0000 00:00:1729446552.356171    5710 tcp_posix.cc:834] TCP:0x256a07f0 call_cb 0xffff98002020 true:0xffff98001d80
+I0000 00:00:1729446552.356173    5710 tcp_posix.cc:837] READ 0x256a07f0 (peer=ipv4:127.0.0.1:50051) error=OK
+I0000 00:00:1729446552.356175    5710 parsing.cc:334] INCOMING[0xffff98001d80]: SETTINGS:ACK len:0 id:0x00000000
+I0000 00:00:1729446552.356178    5710 parsing.cc:334] INCOMING[0xffff98001d80]: PING len:8 id:0x00000000
+I0000 00:00:1729446552.356180    5710 frame_ping.cc:114] CLIENT[0xffff98001d80]: received ping 6234478840012816778
+I0000 00:00:1729446552.356181    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state IDLE -> WRITING [PING_RESPONSE]
+I0000 00:00:1729446552.356184    5710 tcp_posix.cc:702] TCP:0x256a07f0 notify_on_read
+I0000 00:00:1729446552.356185    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING -> WRITING+MORE [begin partial write in background]
+I0000 00:00:1729446552.356187    5710 chttp2_transport.cc:1081] CLIENT[0xffff98001d80]: Write 17 bytes
+I0000 00:00:1729446552.356189    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.356198    5710 tcp_posix.cc:1858] write: OK
+I0000 00:00:1729446552.356200    5710 chttp2_transport.cc:1094] CLIENT[0xffff98001d80]: Finish write
+I0000 00:00:1729446552.356202    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING+MORE -> WRITING [continue writing]
+I0000 00:00:1729446552.356207    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING -> IDLE [begin writing nothing]
+I0000 00:00:1729446552.356822    5710 tcp_posix.cc:1109] TCP:0x256a07f0 got_read: OK
+I0000 00:00:1729446552.356829    5710 tcp_posix.cc:898] TCP:0x256a07f0 do_read
+I0000 00:00:1729446552.356832    5710 tcp_posix.cc:834] TCP:0x256a07f0 call_cb 0xffff98002020 true:0xffff98001d80
+I0000 00:00:1729446552.356834    5710 tcp_posix.cc:837] READ 0x256a07f0 (peer=ipv4:127.0.0.1:50051) error=OK
+I0000 00:00:1729446552.356836    5710 parsing.cc:334] INCOMING[0xffff98001d80]: HEADERS:END_HEADERS len:78 id:0x00000001
+I0000 00:00:1729446552.356839    5710 parsing.cc:752] parsing initial_metadata
+I0000 00:00:1729446552.356841    5710 hpack_parser.cc:713] HTTP:1:HDR:CLI: :status: 200
+I0000 00:00:1729446552.356846    5710 hpack_parser.cc:713] HTTP:1:HDR:CLI: content-type: application/grpc
+I0000 00:00:1729446552.356850    5710 hpack_parser.cc:713] HTTP:1:HDR:CLI: grpc-accept-encoding: identity, deflate, gzip
+I0000 00:00:1729446552.356853    5710 parsing.cc:334] INCOMING[0xffff98001d80]: DATA len:18 id:0x00000001
+I0000 00:00:1729446552.356855    5710 bdp_estimator.h:52] bdp[ipv4:127.0.0.1:50051]:sched acc=0 est=65536
+I0000 00:00:1729446552.356859    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state IDLE -> WRITING [BDP_PING]
+I0000 00:00:1729446552.356863    5710 stream_lists.cc:124] 0xffff98001d80[1][cli]: add to writable
+I0000 00:00:1729446552.356865    5710 parsing.cc:334] INCOMING[0xffff98001d80]: HEADERS:END_STREAM:END_HEADERS len:30 id:0x00000001
+I0000 00:00:1729446552.356867    5710 parsing.cc:758] parsing trailing_metadata
+I0000 00:00:1729446552.356868    5710 hpack_parser.cc:713] HTTP:1:TRL:CLI: grpc-status: 0
+I0000 00:00:1729446552.356871    5710 hpack_parser.cc:713] HTTP:1:TRL:CLI: grpc-message: 
+I0000 00:00:1729446552.356873    5710 stream_lists.cc:93] 0xffff98001d80[1][cli]: remove from writable
+I0000 00:00:1729446552.356875    5710 parsing.cc:334] INCOMING[0xffff98001d80]: WINDOW_UPDATE len:4 id:0x00000000
+I0000 00:00:1729446552.356877    5710 tcp_posix.cc:702] TCP:0x256a07f0 notify_on_read
+I0000 00:00:1729446552.356879    5710 promise_based_filter.cc:1554] CLI[compression:0x25747bd0] ClientCallData.RecvInitialMetadataReady has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE error:OK md:PeerString: ipv4:127.0.0.1:50051, :status: 200, GrpcStatusFromWire: true, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc
+I0000 00:00:1729446552.356885    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=COMPLETE_AND_GOT_PIPE
+I0000 00:00:1729446552.356887    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=IDLE
+I0000 00:00:1729446552.356889    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=no
+I0000 00:00:1729446552.356892    5710 promise_based_filter.cc:1697] CLI[compression:0x25747bd0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=COMPLETE_AND_PUSHED_TO_PIPE
+I0000 00:00:1729446552.356894    5710 promise_based_filter.cc:1077] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=COMPLETE_AND_PUSHED_TO_PIPE
+I0000 00:00:1729446552.356897    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=COMPLETE_AND_PUSHED_TO_PIPE
+I0000 00:00:1729446552.356898    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=IDLE
+I0000 00:00:1729446552.356900    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=FORWARDED_BATCH push?=no next?=no allow_push_to_pipe=no
+I0000 00:00:1729446552.356902    5710 promise_based_filter.cc:1697] CLI[compression:0x25747bd0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.356904    5710 promise_based_filter.cc:1077] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.356906    5710 promise_based_filter.cc:1554] CLI[http-client:0x25747bb8] ClientCallData.RecvInitialMetadataReady has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=HOOKED_AND_GOT_PIPE error:OK md:PeerString: ipv4:127.0.0.1:50051, :status: 200, GrpcStatusFromWire: true, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc
+I0000 00:00:1729446552.356909    5710 promise_based_filter.cc:994] CLI[http-client:0x25747bb8] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=COMPLETE_AND_GOT_PIPE
+I0000 00:00:1729446552.356911    5710 promise_based_filter.cc:1697] CLI[http-client:0x25747bb8] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=COMPLETE_AND_PUSHED_TO_PIPE
+I0000 00:00:1729446552.356914    5710 promise_based_filter.cc:1077] CLI[http-client:0x25747bb8] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=COMPLETE_AND_PUSHED_TO_PIPE
+I0000 00:00:1729446552.356916    5710 promise_based_filter.cc:994] CLI[http-client:0x25747bb8] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=COMPLETE_AND_PUSHED_TO_PIPE
+I0000 00:00:1729446552.356918    5710 promise_based_filter.cc:1697] CLI[http-client:0x25747bb8] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.356919    5710 promise_based_filter.cc:1077] CLI[http-client:0x25747bb8] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.356925    5710 retry_filter_legacy_call_data.cc:796] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770 batch_data=0xffffa4002540: got recv_initial_metadata_ready, error=OK
+I0000 00:00:1729446552.356928    5710 retry_filter_legacy_call_data.cc:1862] chand=0x25478fe0 calld=0xffffa4000fe0: committing retries
+I0000 00:00:1729446552.356930    5710 retry_filter_legacy_call_data.cc:1679] chand=0x25478fe0 calld=0xffffa4000fe0: destroying send_initial_metadata
+I0000 00:00:1729446552.356932    5710 retry_filter_legacy_call_data.cc:1686] chand=0x25478fe0 calld=0xffffa4000fe0: destroying send_messages[0]
+I0000 00:00:1729446552.356933    5710 retry_filter_legacy_call_data.cc:1693] chand=0x25478fe0 calld=0xffffa4000fe0: destroying send_trailing_metadata
+I0000 00:00:1729446552.356935    5710 retry_filter_legacy_call_data.cc:233] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: retry state no longer needed; moving LB call to parent and unreffing the call attempt
+I0000 00:00:1729446552.356937    5710 retry_filter_legacy_call_data.cc:1846] chand=0x25478fe0 calld=0xffffa4000fe0: invoking recv_initial_metadata_ready for pending batch at index 0
+I0000 00:00:1729446552.356941    5710 promise_based_filter.cc:677] CLI[compression:0x25747bd0] ReceiveMessage.OnComplete st=FORWARDED_BATCH status=OK
+I0000 00:00:1729446552.356943    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.356945    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=IDLE
+I0000 00:00:1729446552.356946    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=BATCH_COMPLETED push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.356949    5710 compression_filter.cc:168] DecompressMessage: len=13 max=4194304 alg=0
+I0000 00:00:1729446552.356951    5710 promise_based_filter.cc:864] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner next complete: got message new_state=PULLED_FROM_PIPE
+I0000 00:00:1729446552.356953    5710 promise_based_filter.cc:880] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner push complete
+I0000 00:00:1729446552.356954    5710 promise_based_filter.cc:1697] CLI[compression:0x25747bd0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.356958    5710 promise_based_filter.cc:1077] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.356960    5710 promise_based_filter.cc:677] CLI[message_size:0x25747ba0] ReceiveMessage.OnComplete st=FORWARDED_BATCH status=OK
+I0000 00:00:1729446552.356962    5710 promise_based_filter.cc:994] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.356963    5710 promise_based_filter.cc:471] CLI[message_size:0x25747ba0] SendMessage.WakeInsideCombiner st=IDLE
+I0000 00:00:1729446552.356965    5710 promise_based_filter.cc:774] CLI[message_size:0x25747ba0] ReceiveMessage.WakeInsideCombiner st=BATCH_COMPLETED push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.356967    5710 message_size_filter.cc:162] PBF_CLIENT[0x25747de0]: [message_size] [message_size] recv len:13 max:4194304
+I0000 00:00:1729446552.356969    5710 promise_based_filter.cc:864] CLI[message_size:0x25747ba0] ReceiveMessage.WakeInsideCombiner next complete: got message new_state=PULLED_FROM_PIPE
+I0000 00:00:1729446552.356971    5710 promise_based_filter.cc:880] CLI[message_size:0x25747ba0] ReceiveMessage.WakeInsideCombiner push complete
+I0000 00:00:1729446552.356972    5710 promise_based_filter.cc:1697] CLI[message_size:0x25747ba0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.356974    5710 promise_based_filter.cc:1077] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run: poll=<<pending>>; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=FORWARDED captured={}
+I0000 00:00:1729446552.356976    5710 retry_filter_legacy_call_data.cc:890] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770 batch_data=0xffffa4002540: got recv_message_ready, error=OK
+I0000 00:00:1729446552.356978    5710 retry_filter_legacy_call_data.cc:1846] chand=0x25478fe0 calld=0xffffa4000fe0: invoking recv_message_ready for pending batch at index 0
+I0000 00:00:1729446552.356981    5710 promise_based_filter.cc:1746] CLI[compression:0x25747bd0] ClientCallData.RecvTrailingMetadataReady recv_trailing_state=FORWARDED error=OK md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.356984    5710 promise_based_filter.cc:717] CLI[compression:0x25747bd0] ReceiveMessage.Done st=IDLE md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.356986    5710 promise_based_filter.cc:430] CLI[compression:0x25747bd0] SendMessage.Done st=IDLE md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.356988    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.356989    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=CANCELLED_BUT_NOT_YET_POLLED
+I0000 00:00:1729446552.356991    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=CANCELLED_WHILST_IDLE push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.356993    5710 promise_based_filter.cc:1697] CLI[compression:0x25747bd0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.357320    5710 promise_based_filter.cc:1077] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run: poll=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.357328    5710 promise_based_filter.cc:430] CLI[compression:0x25747bd0] SendMessage.Done st=CANCELLED md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357330    5710 promise_based_filter.cc:717] CLI[compression:0x25747bd0] ReceiveMessage.Done st=CANCELLED md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357333    5710 promise_based_filter.cc:1746] CLI[http-client:0x25747bb8] ClientCallData.RecvTrailingMetadataReady recv_trailing_state=FORWARDED error=OK md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357335    5710 promise_based_filter.cc:994] CLI[http-client:0x25747bb8] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.357337    5710 promise_based_filter.cc:1697] CLI[http-client:0x25747bb8] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.357344    5710 promise_based_filter.cc:1077] CLI[http-client:0x25747bb8] ClientCallData.PollContext.Run: poll=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.357347    5710 promise_based_filter.cc:1746] CLI[message_size:0x25747ba0] ClientCallData.RecvTrailingMetadataReady recv_trailing_state=FORWARDED error=OK md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357349    5710 promise_based_filter.cc:717] CLI[message_size:0x25747ba0] ReceiveMessage.Done st=IDLE md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357351    5710 promise_based_filter.cc:430] CLI[message_size:0x25747ba0] SendMessage.Done st=IDLE md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357353    5710 promise_based_filter.cc:994] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357355    5710 promise_based_filter.cc:471] CLI[message_size:0x25747ba0] SendMessage.WakeInsideCombiner st=CANCELLED_BUT_NOT_YET_POLLED
+I0000 00:00:1729446552.357357    5710 promise_based_filter.cc:774] CLI[message_size:0x25747ba0] ReceiveMessage.WakeInsideCombiner st=CANCELLED_WHILST_IDLE push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.357359    5710 promise_based_filter.cc:1697] CLI[message_size:0x25747ba0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357361    5710 promise_based_filter.cc:1077] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run: poll=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357364    5710 promise_based_filter.cc:430] CLI[message_size:0x25747ba0] SendMessage.Done st=CANCELLED md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357366    5710 promise_based_filter.cc:717] CLI[message_size:0x25747ba0] ReceiveMessage.Done st=CANCELLED md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357368    5710 promise_based_filter.cc:1746] CLI[client-auth-filter:0x25747b88] ClientCallData.RecvTrailingMetadataReady recv_trailing_state=FORWARDED error=OK md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357370    5710 promise_based_filter.cc:994] CLI[client-auth-filter:0x25747b88] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357738    5710 promise_based_filter.cc:1697] CLI[client-auth-filter:0x25747b88] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357745    5710 promise_based_filter.cc:1077] CLI[client-auth-filter:0x25747b88] ClientCallData.PollContext.Run: poll=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357750    5710 promise_based_filter.cc:1746] CLI[authority:0x25747b70] ClientCallData.RecvTrailingMetadataReady recv_trailing_state=FORWARDED error=OK md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357752    5710 promise_based_filter.cc:994] CLI[authority:0x25747b70] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357754    5710 promise_based_filter.cc:1697] CLI[authority:0x25747b70] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357756    5710 promise_based_filter.cc:1077] CLI[authority:0x25747b70] ClientCallData.PollContext.Run: poll=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357760    5710 client_channel_filter.cc:2970] chand=0x2573cbb0 lb_call=0xffffa40023a0: got recv_trailing_metadata_ready: error=OK call_attempt_tracer()=0 lb_subchannel_call_tracker_=0 failure_error_=OK
+I0000 00:00:1729446552.357762    5710 retry_filter_legacy_call_data.cc:1080] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770 batch_data=0xffffa4002540: got recv_trailing_metadata_ready, error=OK
+I0000 00:00:1729446552.357764    5710 retry_filter_legacy_call_data.cc:1104] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: call finished, status=OK server_pushback=N/A is_lb_drop=false stream_network_state=N/A
+I0000 00:00:1729446552.357767    5710 retry_filter_legacy_call_data.cc:1846] chand=0x25478fe0 calld=0xffffa4000fe0: invoking recv_trailing_metadata_ready for pending batch at index 0
+I0000 00:00:1729446552.357769    5710 retry_filter_legacy_call_data.cc:1792] chand=0x25478fe0 calld=0xffffa4000fe0: clearing pending batch
+I0000 00:00:1729446552.357771    5710 retry_filter_legacy_call_data.cc:724] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: destroying batch 0xffffa4002540
+I0000 00:00:1729446552.357773    5710 retry_filter_legacy_call_data.cc:167] chand=0x25478fe0 calld=0xffffa4000fe0 attempt=0xffffa4001770: destroying call attempt
+I0000 00:00:1729446552.357776    5710 client_channel_filter.cc:2325] chand=0x2573cbb0 calld=0x2573f600: got recv_trailing_metadata_ready: error=OK service_config_call_data=0xffffa4000ea0
+I0000 00:00:1729446552.357778    5710 promise_based_filter.cc:1746] CLI[client_idle:0x2573f4e0] ClientCallData.RecvTrailingMetadataReady recv_trailing_state=FORWARDED error=OK md=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true
+I0000 00:00:1729446552.357780    5710 promise_based_filter.cc:994] CLI[client_idle:0x2573f4e0] ClientCallData.PollContext.Run has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357782    5710 promise_based_filter.cc:1697] CLI[client_idle:0x2573f4e0] ClientCallData.PollTrailingMetadata has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357783    5710 promise_based_filter.cc:1077] CLI[client_idle:0x2573f4e0] ClientCallData.PollContext.Run: poll=grpc-message: , grpc-status: 0, GrpcStatusFromWire: true; has_promise=true sent_initial_state=FORWARDED recv_trailing_state=COMPLETE captured={}
+I0000 00:00:1729446552.357786    5710 legacy_channel_idle_filter.cc:254] (client idle filter) timer has started
+I0000 00:00:1729446552.357788    5710 memory_quota.cc:550] Adding allocator 0xffff98003b00
+I0000 00:00:1729446552.357791    5710 posix_engine.cc:512] PosixEventEngine:0x253d0ec0 scheduling callback:{000000002558d8a0,0000000000000002}
+I0000 00:00:1729446552.357829    5710 filter_stack_call.cc:359] set_final_status CLI UNKNOWN {grpc_message:"", grpc_status:0}
+I0000 00:00:1729446552.357836    5710 completion_queue.cc:703] cq_end_op_for_next(cq=0x2551eaf0, tag=0xffffbd2bfa10, error=OK, done=true, done_arg=0x25596be0, storage=0x25596c30)
+I0000 00:00:1729446552.357839    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=false sent_initial_state=FORWARDED recv_trailing_state=RESPONDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.357841    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=CANCELLED
+I0000 00:00:1729446552.357842    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=CANCELLED push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.357844    5710 promise_based_filter.cc:994] CLI[http-client:0x25747bb8] ClientCallData.PollContext.Run has_promise=false sent_initial_state=FORWARDED recv_trailing_state=RESPONDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.357846    5710 promise_based_filter.cc:994] CLI[compression:0x25747bd0] ClientCallData.PollContext.Run has_promise=false sent_initial_state=FORWARDED recv_trailing_state=RESPONDED captured={} recv_initial_metadata=RESPONDED
+I0000 00:00:1729446552.357848    5710 promise_based_filter.cc:471] CLI[compression:0x25747bd0] SendMessage.WakeInsideCombiner st=CANCELLED
+I0000 00:00:1729446552.357849    5710 promise_based_filter.cc:774] CLI[compression:0x25747bd0] ReceiveMessage.WakeInsideCombiner st=CANCELLED push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.357851    5710 promise_based_filter.cc:994] CLI[message_size:0x25747ba0] ClientCallData.PollContext.Run has_promise=false sent_initial_state=FORWARDED recv_trailing_state=RESPONDED captured={}
+I0000 00:00:1729446552.357853    5710 promise_based_filter.cc:471] CLI[message_size:0x25747ba0] SendMessage.WakeInsideCombiner st=CANCELLED
+I0000 00:00:1729446552.357854    5710 promise_based_filter.cc:774] CLI[message_size:0x25747ba0] ReceiveMessage.WakeInsideCombiner st=CANCELLED push?=no next?=no allow_push_to_pipe=yes
+I0000 00:00:1729446552.357859    5710 writing.cc:138] CLIENT[0xffff98001d80]: Ping 6425982366539814537 sent [ipv4:127.0.0.1:50051]: max_pings_without_data: 2, pings_before_data_required: 1, last_ping_sent_time_: @1551ms
+I0000 00:00:1729446552.357861    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING -> WRITING [begin write in current thread]
+I0000 00:00:1729446552.357863    5710 chttp2_transport.cc:1081] CLIENT[0xffff98001d80]: Write 17 bytes
+I0000 00:00:1729446552.357865    5710 tcp_posix.cc:1813] WRITE 0x256a07f0 (peer=ipv4:127.0.0.1:50051)
+I0000 00:00:1729446552.358002    5710 tcp_posix.cc:1858] write: OK
+I0000 00:00:1729446552.358008    5710 chttp2_transport.cc:1094] CLIENT[0xffff98001d80]: Finish write
+I0000 00:00:1729446552.358010    5710 chttp2_transport.cc:951] W:0xffff98001d80 CLIENT [ipv4:127.0.0.1:50051] state WRITING -> IDLE [finish writing]
+I0000 00:00:1729446552.358013    5710 chttp2_transport.cc:2846] ipv4:127.0.0.1:50051: Start BDP ping err=OK
+I0000 00:00:1729446552.358014    5710 bdp_estimator.h:64] bdp[ipv4:127.0.0.1:50051]:start acc=18 est=65536
+I0000 00:00:1729446552.358017    5710 completion_queue.cc:1068] RETURN_EVENT[0x2551eaf0]: OP_COMPLETE: tag:0xffffbd2bfa10 OK
+I0000 00:00:1729446552.358029    5710 metadata_array.cc:34] grpc_metadata_array_destroy(array=0xffffbd2d9058)
+I0000 00:00:1729446552.358034    5710 metadata_array.cc:34] grpc_metadata_array_destroy(array=0xffffbd23e630)
+I0000 00:00:1729446552.358041    5710 filter_stack_call.cc:271] grpc_call_unref(c=0x2573e6c0)
+I0000 00:00:1729446552.358043    5710 client_channel_filter.cc:3043] chand=0x2573cbb0 lb_call=0xffffa40023a0: cancelling queued pick: error=OK self=0x2540b8c0 calld->pick_canceller=0
+I0000 00:00:1729446552.358407    5710 retry_filter_legacy_call_data.cc:1679] chand=0x25478fe0 calld=0xffffa4000fe0: destroying send_initial_metadata
+I0000 00:00:1729446552.358411    5710 retry_filter_legacy_call_data.cc:1693] chand=0x25478fe0 calld=0xffffa4000fe0: destroying send_trailing_metadata
+I0000 00:00:1729446552.358422    5710 completion_queue.cc:1402] grpc_completion_queue_shutdown(cq=0x2551eaf0)
+I0000 00:00:1729446552.358425    5710 completion_queue.cc:1408] grpc_completion_queue_destroy(cq=0x2551eaf0)
+I0000 00:00:1729446552.358426    5710 completion_queue.cc:1402] grpc_completion_queue_shutdown(cq=0x2551eaf0)
+I0000 00:00:1729446552.358495    5710 completion_queue.cc:1402] grpc_completion_queue_shutdown(cq=0x254ca5a0)
+I0000 00:00:1729446552.358509    5710 completion_queue.cc:1408] grpc_completion_queue_destroy(cq=0x254ca5a0)
+I0000 00:00:1729446552.358511    5710 completion_queue.cc:1402] grpc_completion_queue_shutdown(cq=0x254ca5a0)
+I0000 00:00:1729446552.358513    5710 completion_queue.cc:1402] grpc_completion_queue_shutdown(cq=0x254e3a20)
+I0000 00:00:1729446552.358514    5710 completion_queue.cc:1408] grpc_completion_queue_destroy(cq=0x254e3a20)
+I0000 00:00:1729446552.358515    5710 completion_queue.cc:1402] grpc_completion_queue_shutdown(cq=0x254e3a20)
+I0000 00:00:1729446552.358517    5710 channel.cc:96] grpc_channel_destroy(channel=0x256160c0)
+I0000 00:00:1729446552.358598    5710 memory_quota.cc:561] Removing allocator 0xffff98003b00
+I0000 00:00:1729446552.358613    5710 client_channel_filter.cc:1721] chand=0x2573cbb0: disconnect_with_error: UNKNOWN:Channel Destroyed {created_time:"2024-10-20T17:49:12.358519281+00:00"}
+I0000 00:00:1729446552.358648    5710 client_channel_filter.cc:1552] chand=0x2573cbb0: shutting down resolver=0x2572b370
+I0000 00:00:1729446552.358650    5710 polling_resolver.cc:100] [polling resolver 0x2572b370] shutting down
+I0000 00:00:1729446552.358652    5710 polling_resolver.cc:69] [polling resolver 0x2572b370] destroying
+I0000 00:00:1729446552.358653    5710 client_channel_filter.cc:464] chand=0x2573cbb0: resolver shutdown complete
+I0000 00:00:1729446552.358655    5710 client_channel_filter.cc:1573] chand=0x2573cbb0: shutting down lb_policy=0x25708ba0
+I0000 00:00:1729446552.358657    5710 child_policy_handler.cc:135] [child_policy_handler 0x25708ba0] shutting down
+I0000 00:00:1729446552.358659    5710 child_policy_handler.cc:140] [child_policy_handler 0x25708ba0] shutting down lb_policy 0x256a0ae0
+I0000 00:00:1729446552.358660    5710 pick_first.cc:432] Pick First 0x256a0ae0 Shutting down
+I0000 00:00:1729446552.358662    5710 pick_first.cc:677] [PF 0x256a0ae0] subchannel state 0x2555abe0 (subchannel 0x25430080): cancelling watch and unreffing subchannel
+I0000 00:00:1729446552.358670    5710 pick_first.cc:427] Destroying Pick First 0x256a0ae0
+I0000 00:00:1729446552.358673    5710 connectivity_state.cc:152] ConnectivityStateTracker client_channel[0x2573ccd8]: READY -> SHUTDOWN (shutdown from API, OK)
+I0000 00:00:1729446552.358676    5710 client_channel_filter.cc:523] chand=0x2573cbb0: destroying subchannel wrapper 0x25430080for subchannel 0x25751ce0
+I0000 00:00:1729446552.358681    5710 memory_quota.cc:561] Removing allocator 0x254a51e0
+I0000 00:00:1729446552.358685    5710 client_channel_filter.cc:1163] chand=0x2573cbb0: destroying channel
+I0000 00:00:1729446552.358689    5710 init.cc:163] grpc_shutdown(void)
+I0000 00:00:1729446552.358694    5710 chttp2_transport.cc:1702] 0xffff98001d80 CANCEL PINGS: UNKNOWN:Transport destroyed {created_time:"2024-10-20T17:49:12.358693323+00:00", occurred_during_write:0}
+I0000 00:00:1729446552.358700    5710 chttp2_transport.cc:3057] transport 0xffff98001d80 set connectivity_state=4; status=OK; reason=close_transport
+I0000 00:00:1729446552.358702    5710 connectivity_state.cc:152] ConnectivityStateTracker client_transport[0xffff98002148]: READY -> SHUTDOWN (close_transport, OK)
+I0000 00:00:1729446552.358704    5710 connectivity_state.cc:160] ConnectivityStateTracker client_transport[0xffff98002148]: notifying watcher 0xffff98001710: READY -> SHUTDOWN
+I0000 00:00:1729446552.358872    5710 memory_quota.cc:561] Removing allocator 0x2550e610
+I0000 00:00:1729446552.358876    5710 memory_quota.cc:561] Removing allocator 0x2571f9c0
+I0000 00:00:1729446552.358878    5710 connectivity_state.cc:75] watcher 0xffff98001710: delivering async notification for SHUTDOWN (OK)
+I0000 00:00:1729446552.358881    5710 init.cc:163] grpc_shutdown(void)
+I0000 00:00:1729446552.358884    5710 tcp_posix.cc:1109] TCP:0x256a07f0 got_read: UNKNOWN:FD Shutdown {created_time:"2024-10-20T17:49:12.358719489+00:00", children:[UNAVAILABLE:endpoint shutdown]}
+I0000 00:00:1729446552.358891    5710 tcp_posix.cc:1458] TCP:0x256a07f0 got_error: UNKNOWN: FD Shutdown [type.googleapis.com/grpc.status.time.created_time='2024-10-20T17:49:12.358870989+00:00'] [type.googleapis.com/grpc.status.children='\x15\x00\x00\x00\x08\x0e\x12\x11\x65ndpoint shutdown']
+I0000 00:00:1729446552.358907    5710 chttp2_transport.cc:2871] ipv4:127.0.0.1:50051: Complete BDP ping err=CANCELLED
+I0000 00:00:1729446552.358911    5710 chttp2_transport.cc:1702] 0xffff98001d80 CANCEL PINGS: UNKNOWN:FD Shutdown {created_time:"2024-10-20T17:49:12.358719489+00:00", children:[UNAVAILABLE:endpoint shutdown]}
+I0000 00:00:1729446552.358915    5710 chttp2_transport.cc:1702] 0xffff98001d80 CANCEL PINGS: UNKNOWN:Transport destroyed {created_time:"2024-10-20T17:49:12.358915656+00:00"}
+I0000 00:00:1729446552.358921    5710 init.cc:163] grpc_shutdown(void)
+I0000 00:00:1729446552.359595    5710 init.cc:163] grpc_shutdown(void)
+I0000 00:00:1729446552.359615    5710 init.cc:163] grpc_shutdown(void)
+I0000 00:00:1729446552.359618    5710 timer_manager.cc:307] stop timer threads: threaded=true
+I0000 00:00:1729446552.359620    5710 timer_manager.cc:312] num timer threads: 1
+I0000 00:00:1729446552.359886    5718 timer_manager.cc:198] wait ended: was_timed:true kicked:false
+I0000 00:00:1729446552.359909    5718 timer_manager.cc:268] End timer thread
+I0000 00:00:1729446552.359993    5710 timer_manager.cc:316] num timer threads: 0
+I0000 00:00:1729446552.360037    5710 timer_manager.cc:307] stop timer threads: threaded=false
+I0000 00:00:1729446552.360056    5710 executor.cc:399] Executor::ShutdownAll() enter
+I0000 00:00:1729446552.360058    5710 executor.cc:131] EXECUTOR (default-executor) SetThreading(false) begin
+I0000 00:00:1729446552.360409    5716 executor.cc:231] EXECUTOR (default-executor) [0]: shutdown
+I0000 00:00:1729446552.360437    5710 executor.cc:181] EXECUTOR (default-executor) Thread 1 of 1 joined
+I0000 00:00:1729446552.360441    5710 executor.cc:204] EXECUTOR (default-executor) SetThreading(false) done
+I0000 00:00:1729446552.360456    5710 executor.cc:131] EXECUTOR (resolver-executor) SetThreading(false) begin
+I0000 00:00:1729446552.360484    5717 executor.cc:231] EXECUTOR (resolver-executor) [0]: shutdown
+I0000 00:00:1729446552.360681    5710 executor.cc:181] EXECUTOR (resolver-executor) Thread 1 of 1 joined
+I0000 00:00:1729446552.360696    5710 executor.cc:204] EXECUTOR (resolver-executor) SetThreading(false) done
+I0000 00:00:1729446552.360698    5710 executor.cc:427] Executor::ShutdownAll() done
+Greeter client received: Hello, you!
