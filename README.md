@@ -1,12 +1,24 @@
 # Why gRPC client follows its TCP FIN, ACK with RST, ACK?
 
-Asked at https://groups.google.com/g/grpc-io/c/r1S8xkncQTQ
+This behavior occurs inside of a docker container, when container is started directly on a host.
+Tested on Ubuntu 20.04 amd64 and MacOS M1 arm64 host.
+
+The behavior does not occur inside of a virtual machine (Ubuntu 22.04 and Debian Bookworm)
+started using Vagrant on Ubuntu 20.04 amd64 host, neither inside of a docker container started
+inside of these virtual machines.
+
+The behavior occurs when the code is executed directly on the Ubuntu 20.04 amd64 host,
+and does not occur when the code is executed directly on MacOS M1 arm64 host.
+
+Since the behavior appears not repeatable, don't interpret the above "occurs" and "does not occur" as "always" and "never". 
+
+The question asked at https://groups.google.com/g/grpc-io/c/r1S8xkncQTQ
 
 # Answer
 
 ?
 
-# To reproduce the behavior work on your (local) host or inside of a docker container.
+# Reproduce the behavior inside of a docker container.
 
 0. Set the gRPC version.
    ```sh
@@ -54,7 +66,7 @@ Asked at https://groups.google.com/g/grpc-io/c/r1S8xkncQTQ
 
    # Will try to greet world ...
    # Greeter client received: Hello, you!
-   # The debug.log is included in the repo as a separate file, similarly to the pcap files.
+   # The verbose.log is included in the repo as a separate file, similarly to the pcap files.
 
    # 4d. Stop tcdump with ctrl+c, and read the packet capture.
    docker exec -it grpc sh -c "tshark -r /opt/grpc/python_python.pcap"
@@ -327,3 +339,52 @@ Requires https://www.gnu.org/software/screen/manual/screen.html installed on the
    #    17   0.002572    127.0.0.1 → 127.0.0.1    HTTP2 83 PING[0] # server -> client
    #    18   0.002591    127.0.0.1 → 127.0.0.1    TCP 54 36446 → 50051 [RST] Seq=255 Win=0 Len=0
    ```
+
+# No reproduction in virtual machines
+
+8. Start the virtual machines.
+   ```sh
+   vagrant up
+   vagrant ssh vm1 -c "python3 -m venv venv && . venv/bin/activate && python -m pip install grpcio==${GRPC_VERSION} protobuf"
+   vagrant ssh vm2 -c "python3 -m venv venv && . venv/bin/activate && python -m pip install grpcio==${GRPC_VERSION} protobuf"
+   vagrant ssh vm1 -c "sed -i 's/1.67.0.dev0/1.67.0/' /vagrant/grpc/examples/python/helloworld/helloworld_pb2_grpc.py"
+   ```
+
+9. A Python gRPC client uses the expected FIN -> FIN -> ACK TCP connection termination.
+   ```sh
+   # 9a. In the first terminal, start server.
+   vagrant ssh vm1 -c ". venv/bin/activate && python /vagrant/grpc/examples/python/helloworld/greeter_server.py"
+
+   # 9b. In the second, start tcdump.
+   vagrant ssh vm1 -c "sudo tcpdump -i lo -w /tmp/python_python_vagrant.pcap 'port 50051' && cp /tmp/python_python_vagrant.pcap /vagrant/grpc"
+
+   # 9c. In the third terminal, start client.
+   vagrant ssh vm1 -c ". venv/bin/activate && GRPC_TRACE=all GRPC_VERBOSITY=DEBUG python /vagrant/grpc/examples/python/helloworld/greeter_client.py"
+
+   # Will try to greet world ...
+   # Greeter client received: Hello, you!
+   # The verbose_vagrant.log is included in the repo as a separate file, similarly to the pcap files.
+
+   # 9d. Stop tcdump with ctrl+c, and read the packet capture.
+   vagrant ssh vm1 -c "tshark -r /vagrant/grpc/python_python_vagrant.pcap"
+
+   #    1   0.000000   ::1 ? ::1   TCP 94 45864 ? 50051 [SYN] Seq=0 Win=65476 Len=0 MSS=65476 SACK_PERM TSval=1997884276 TSecr=0 WS=128
+   #    2   0.000033   ::1 ? ::1   TCP 94 50051 ? 45864 [SYN, ACK] Seq=0 Ack=1 Win=65464 Len=0 MSS=65476 SACK_PERM TSval=1997884276 TSecr=1997884276 WS=128
+   #    3   0.000051   ::1 ? ::1   TCP 86 45864 ? 50051 [ACK] Seq=1 Ack=1 Win=65536 Len=0 TSval=1997884276 TSecr=1997884276
+   #    4   0.000669   ::1 ? ::1   TCP 132 50051 ? 45864 [PSH, ACK] Seq=1 Ack=1 Win=65536 Len=46 TSval=1997884277 TSecr=1997884276
+   #    5   0.000860   ::1 ? ::1   TCP 86 45864 ? 50051 [ACK] Seq=1 Ack=47 Win=65536 Len=0 TSval=1997884277 TSecr=1997884277
+   #    6   0.003955   ::1 ? ::1   HTTP2 168 Magic, SETTINGS[0], WINDOW_UPDATE[0]
+   #    7   0.003969   ::1 ? ::1   TCP 86 50051 ? 45864 [ACK] Seq=47 Ack=83 Win=65536 Len=0 TSval=1997884280 TSecr=1997884280
+   #    8   0.004100   ::1 ? ::1   HTTP2 95 SETTINGS[0]
+   #    9   0.011258   ::1 ? ::1   GRPCHTTP2 366 SETTINGS[0], HEADERS[1]: POST /helloworld.Greeter/SayHello, WINDOW_UPDATE[1], DATA[1] (GRPC) (PROTOBUF), WINDOW_UPDATE[0]
+   #   10   0.011402   ::1 ? ::1   HTTP2 103 PING[0]
+   #   11   0.013222   ::1 ? ::1   HTTP2 103 PING[0]
+   #   12   0.019207   ::1 ? ::1   GRPCHTTP2 252 HEADERS[1]: 200 OK, DATA[1] (GRPC) (PROTOBUF), HEADERS[1], WINDOW_UPDATE[0]
+   #   13   0.023496   ::1 ? ::1   HTTP2 103 PING[0]
+   #   14   0.023593   ::1 ? ::1   HTTP2 103 PING[0]
+   #   15   0.026607   ::1 ? ::1   TCP 86 45864 ? 50051 [FIN, ACK] Seq=397 Ack=256 Win=65536 Len=0 TSval=1997884303 TSecr=1997884300
+   #   16   0.026753   ::1 ? ::1   TCP 86 50051 ? 45864 [FIN, ACK] Seq=256 Ack=398 Win=65536 Len=0 TSval=1997884303 TSecr=1997884303
+   #   17   0.026764   ::1 ? ::1   TCP 86 45864 ? 50051 [ACK] Seq=398 Ack=257 Win=65536 Len=0 TSval=1997884303 TSecr=1997884303
+   ```
+
+10. Perform steps 0. - 4. with docker, inside of `vagrant ssh vm1`. The expected FIN -> FIN -> ACK TCP connection termination occurs.
