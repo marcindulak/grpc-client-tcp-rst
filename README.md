@@ -1,5 +1,7 @@
 # Why gRPC client follows its TCP FIN, ACK with RST, ACK?
 
+This problem is similar to https://github.com/caddyserver/caddy/issues/6477#issuecomment-2439604440
+
 This behavior occurs inside of a docker container, when container is started directly on a host.
 Tested on Ubuntu 20.04 amd64 and MacOS M1 arm64 host.
 
