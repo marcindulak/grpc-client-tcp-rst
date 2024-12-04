@@ -1,20 +1,21 @@
 # Why gRPC client follows its TCP FIN, ACK with RST, ACK?
 
-This problem is similar to https://github.com/caddyserver/caddy/issues/6477#issuecomment-2439604440
+The behavior (= client follows its FIN with RST) looks similar to https://github.com/grpc/grpc-go/issues/2869
+and to https://github.com/caddyserver/caddy/issues/6477#issuecomment-2439604440
 
 This behavior occurs inside of a docker container, when container is started directly on a host.
 Tested on Ubuntu 20.04 amd64 and MacOS M1 arm64 host.
 
-The behavior does not occur inside of a virtual machine (Ubuntu 22.04 and Debian Bookworm)
-started using Vagrant on Ubuntu 20.04 amd64 host, neither inside of a docker container started
+The behavior occurs less often inside of a virtual machine (Ubuntu 22.04 and Debian Bookworm)
+started using Vagrant on Ubuntu 20.04 amd64 host, or inside of a docker container started
 inside of these virtual machines.
-
 The behavior occurs when the code is executed directly on the Ubuntu 20.04 amd64 host,
 and does not occur when the code is executed directly on MacOS M1 arm64 host.
 
 Since the behavior appears not repeatable, don't interpret the above "occurs" and "does not occur" as "always" and "never". 
 
-The question asked at https://groups.google.com/g/grpc-io/c/r1S8xkncQTQ
+The question asked at https://groups.google.com/g/grpc-io/c/r1S8xkncQTQ,
+and reported at https://github.com/grpc/grpc/issues/38231.
 
 # Answer
 
@@ -38,12 +39,6 @@ The question asked at https://groups.google.com/g/grpc-io/c/r1S8xkncQTQ
 2. Start a container. Add `--privileged` if planning to use iptables.
    ```sh
    docker run --detach --rm -v $PWD/grpc:/opt/grpc -v $PWD/grpc-go:/opt/grpc-go --name grpc debian:unstable bash -c "sleep infinity"
-   docker exec -it grpc bash -c "uname -a && tshark --version"
-   docker --version
-
-   # Linux 79ae7d0391cd 6.6.51-0-virt #1-Alpine SMP PREEMPT_DYNAMIC 2024-09-12 12:56:22 aarch64 GNU/Linux
-   # TShark (Wireshark) 4.4.1.
-   # Docker version 27.2.1-rd, build cc0ee3e
    ```
 
 3. Install packages.
@@ -54,6 +49,19 @@ The question asked at https://groups.google.com/g/grpc-io/c/r1S8xkncQTQ
    # https://github.com/grpc/grpc/issues/37610
    docker exec -it grpc bash -c "sed -i 's/1.67.0.dev0/1.67.0/' /opt/grpc/examples/python/helloworld/helloworld_pb2_grpc.py"
    ```
+
+   Print versions
+   ```sh
+   docker exec -it grpc bash -c "cat /etc/*release | grep PRETTY"
+   docker exec -it grpc bash -c "uname -a && tshark --version"
+   docker exec -it grpc bash -c "python3 -V"
+   docker --version
+
+   # PRETTY_NAME="Debian GNU/Linux trixie/sid"
+   # Linux 79ae7d0391cd 6.6.51-0-virt #1-Alpine SMP PREEMPT_DYNAMIC 2024-09-12 12:56:22 aarch64 GNU/Linux
+   # TShark (Wireshark) 4.4.1.
+   # Python 3.12.8
+   # Docker version 27.2.1-rd, build cc0ee3e
 
 4. A Python gRPC client always (?) follows its TCP FIN, ACK with RST, ACK.
    ```sh
@@ -342,13 +350,12 @@ Requires https://www.gnu.org/software/screen/manual/screen.html installed on the
    #    18   0.002591    127.0.0.1 → 127.0.0.1    TCP 54 36446 → 50051 [RST] Seq=255 Win=0 Len=0
    ```
 
-# No reproduction in virtual machines
+# Less frequent reproduction in virtual machines
 
 8. Start the virtual machines.
    ```sh
    vagrant up
    vagrant ssh vm1 -c "python3 -m venv venv && . venv/bin/activate && python -m pip install grpcio==${GRPC_VERSION} protobuf"
-   vagrant ssh vm2 -c "python3 -m venv venv && . venv/bin/activate && python -m pip install grpcio==${GRPC_VERSION} protobuf"
    vagrant ssh vm1 -c "sed -i 's/1.67.0.dev0/1.67.0/' /vagrant/grpc/examples/python/helloworld/helloworld_pb2_grpc.py"
    ```
 
@@ -389,4 +396,4 @@ Requires https://www.gnu.org/software/screen/manual/screen.html installed on the
    #   17   0.026764   ::1 ? ::1   TCP 86 45864 ? 50051 [ACK] Seq=398 Ack=257 Win=65536 Len=0 TSval=1997884303 TSecr=1997884303
    ```
 
-10. Perform steps 0. - 4. with docker, inside of `vagrant ssh vm1`. The expected FIN -> FIN -> ACK TCP connection termination occurs.
+10. Perform steps 0. - 4. with docker, inside of `vagrant ssh vm1`. The expected FIN -> FIN -> ACK TCP connection termination may occur.
